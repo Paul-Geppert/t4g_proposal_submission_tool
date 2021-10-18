@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React from "react";
+import MDEditor from "@uiw/react-md-editor";
+
+function generatePDF(value) {
+  console.log(value);
+}
+
+export default function App() {
+  const [value, setValue] = React.useState("**Hello world!!!**");
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <MDEditor
+          value={value}
+          onChange={setValue}
+        />
+        {/* <MDEditor.Markdown source={value} /> */}
+      </div>
+      <button
+        className="generate"
+        onClick={() => generatePDF(value)}
+      >
+        Generate PDF
+      </button>
     </div>
   );
 }
-
-export default App;
