@@ -20,9 +20,21 @@
   },
   "eslintConfig": {
     "extends": [
+      "airbnb",
       "react-app",
       "react-app/jest"
-    ]
+    ],
+    "parser": "babel-eslint",
+    "rules": {
+      "react/forbid-prop-types": "off",
+      "implicit-arrow-linebreak": "off",
+      "consistent-return": "off",
+      "react/jsx-props-no-spreading": "off",
+      "react/no-access-state-in-setstate": "off",
+      "react/no-array-index-key": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "no-underscore-dangle": "off"
+    }
   },
   "browserslist": {
     "production": [
@@ -35,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1"
   }
 }
