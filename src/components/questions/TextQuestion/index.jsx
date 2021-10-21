@@ -2,35 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, TextField, Typography } from '@material-ui/core';
+import withStep from '../withStep';
 
-const TextQuestion = ({ question, id, label }) => {
-  const d = <TextField id={id} label={label} variant="standard" />;
-  return (
-    <div className="TextQuestion">
-      <Box display="flex" alignItems="center">
-        <Typography>
-          {question}
-        </Typography>
-        <Box
-          component="form"
-        >
-          {d}
-        </Box>
+const TextQuestion = ({
+  id, proposal, update, question, label,
+}) => (
+  <div className="TextQuestion">
+    <Box display="flex" alignItems="center">
+      <Typography>
+        {question}
+      </Typography>
+      <Box
+        component="form"
+      >
+        <TextField
+          id={id}
+          label={label}
+          variant="standard"
+          onChange={({ target: { value } }) => {
+            update(value);
+          }}
+        />
       </Box>
-    </div>
-  );
-};
+    </Box>
+  </div>
+);
 
 TextQuestion.defaultProps = {
   question: '',
-  id: '',
   label: '',
 };
 
 TextQuestion.propTypes = {
+  id: PropTypes.string.isRequired,
+  proposal: PropTypes.shape({
+    welt: PropTypes.string.isRequired,
+  }).isRequired,
+  update: PropTypes.func.isRequired,
   question: PropTypes.string,
-  id: PropTypes.string,
   label: PropTypes.string,
 };
 
-export default TextQuestion;
+export default withStep(TextQuestion);

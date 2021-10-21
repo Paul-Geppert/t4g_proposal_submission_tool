@@ -1,17 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import MDEditor from '@uiw/react-md-editor';
 
-const MarkdownQuestion = () => {
-  const [value, setValue] = React.useState('**Hello world!!!**');
-  return (
-    <div className="MarkdownQuestion">
-      <MDEditor
-        value={value}
-        onChange={setValue}
-      />
-      {/* <MDEditor.Markdown source={value} /> */}
-    </div>
-  );
+import withStep from '../withStep';
+
+const MarkdownQuestion = ({ id, proposal, update }) => (
+  <div className="MarkdownQuestion">
+    <MDEditor
+      value={proposal[id]}
+      onChange={update(id)}
+    />
+  </div>
+);
+
+MarkdownQuestion.propTypes = {
+  id: PropTypes.string.isRequired,
+  proposal: PropTypes.object.isRequired,
+  update: PropTypes.func.isRequired,
 };
 
-export default MarkdownQuestion;
+export default withStep(MarkdownQuestion);
