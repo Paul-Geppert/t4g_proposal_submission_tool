@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { empty, validate } from '../model';
 import * as Proposal from '../../../api/proposal';
 import Page from '../../../components/Page';
@@ -10,13 +10,16 @@ import steps from '../../../components/ProposalStepper/steps';
 
 const ProposalCreation = () => {
   const { enqueueSnackbar } = useSnackbar();
-  //   const history = useHistory();
+  const history = useHistory();
   const [proposal, setProposal] = useState(empty);
   const creationSteps = ['General Information', 'General Information 2'];
 
   const onSubmit = () =>
     Proposal
-      .create(proposal)
+      .create({ content: proposal.name })
+      .then(() => {
+        history.push('next');
+      })
       .catch((error) => enqueueSnackbar(get(error, 'response.body.error', 'Could not create PDF for proposal!'), { variant: 'error' }));
 
   return (

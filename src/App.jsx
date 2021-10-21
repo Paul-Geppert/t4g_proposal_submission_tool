@@ -6,12 +6,11 @@ import { ThemeProvider } from '@material-ui/styles';
 import { SnackbarProvider } from 'notistack';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
-// import './App.css';
 import theme from './theme';
 import Footer from './components/Footer';
 import Header from './components/Header';
-// import ProposalTool from './pages/ProposalTool';
-import ProposalCreation from './pages/Proposal/Creation';
+import Proposal from './pages/Proposal';
+import Home from './pages/Home';
 
 const App = () => {
   const notistackRef = createRef();
@@ -36,7 +35,10 @@ const App = () => {
             {/* <ProposalTool /> */}
             <Switch>
               <Route exact path="/">
-                <ProposalCreation />
+                <Home />
+              </Route>
+              <Route path="/proposals">
+                <Proposal />
               </Route>
             </Switch>
             <Footer />
