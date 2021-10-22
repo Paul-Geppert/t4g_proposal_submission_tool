@@ -1,9 +1,10 @@
-import { OrderedSet } from 'immutable';
 import {
   Box, Divider, Step, StepButton, Stepper, Typography,
-} from '@material-ui/core';
+} from '@mui/material';
+import { OrderedSet } from 'immutable';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+
 import Navigation from './components/Navigation';
 import { isComplete } from './steps';
 

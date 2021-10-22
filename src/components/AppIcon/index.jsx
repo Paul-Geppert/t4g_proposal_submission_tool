@@ -1,4 +1,4 @@
-import { Box, SvgIcon } from '@material-ui/core';
+import { Box, SvgIcon } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import { Box, TextField, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import { Box, TextField, Typography } from '@material-ui/core';
 import withStep from '../withStep';
 
 const TextQuestion = ({

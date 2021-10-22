@@ -1,9 +1,8 @@
-import React, { createRef } from 'react';
-import Box from '@material-ui/core/Box';
-import { CloseOutlined } from '@material-ui/icons';
-import IconButton from '@material-ui/core/IconButton';
-import { ThemeProvider } from '@material-ui/styles';
+import { Box, IconButton } from '@mui/material';
+import { CloseOutlined } from '@mui/icons-material';
+import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
+import React, { createRef } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import theme from './theme';

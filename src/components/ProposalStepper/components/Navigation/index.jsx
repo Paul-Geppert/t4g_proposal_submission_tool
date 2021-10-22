@@ -1,5 +1,5 @@
-import { Box, Button } from '@material-ui/core';
-import { CloseOutlined, NavigateBeforeOutlined, NavigateNextOutlined } from '@material-ui/icons';
+import { CloseOutlined, NavigateBeforeOutlined, NavigateNextOutlined } from '@mui/icons-material';
+import { Box, Button } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useHistory } from 'react-router-dom';

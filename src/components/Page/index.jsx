@@ -1,7 +1,7 @@
-import { Box, Typography } from '@material-ui/core';
+import { Box, Typography } from '@mui/material';
 import { isEmpty, isString } from 'lodash';
-import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
 import theme from '../../theme';
 import Container from '../Container';

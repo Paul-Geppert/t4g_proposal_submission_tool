@@ -1,7 +1,7 @@
-import React from 'react';
 import {
   AppBar, Box, Toolbar,
-} from '@material-ui/core';
+} from '@mui/material';
+import React from 'react';
 
 import AppIcon from '../AppIcon';
 

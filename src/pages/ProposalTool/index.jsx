@@ -1,5 +1,6 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
-import { Button } from '@material-ui/core';
+
 import Page from '../../components/Page';
 import TextQuestion from '../../components/questions/TextQuestion';
 import MarkdownQuestion from '../../components/questions/MarkdownQuestion';

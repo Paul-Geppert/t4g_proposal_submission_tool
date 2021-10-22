@@ -1,6 +1,6 @@
-import { Box } from '@material-ui/core';
-import React from 'react';
+import { Box } from '@mui/material';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const Container = ({
   children, leftSidebar, rightSidebar, ...props
