@@ -1,5 +1,5 @@
 import {
-  Box, Divider, Step, StepButton, Stepper, Typography,
+  Box, Divider, Grid, Step, StepButton, Stepper, Typography,
 } from '@mui/material';
 import { OrderedSet } from 'immutable';
 import PropTypes from 'prop-types';
@@ -22,6 +22,8 @@ const ProposalCreationStepper = ({
   const visitStep = (step) =>
     setUnvisited(unvisited.delete(step));
 
+  const isLastStep = () => activeStep === steps.length - 1;
+
   const back = () =>
     setActiveStep(
       activeStep > 0
@@ -40,30 +42,42 @@ const ProposalCreationStepper = ({
 
   return (
     <Box className="ProposalCreationStepper" mb={4}>
-      <Stepper activeStep={activeStep} alternativeLabel nonLinear style={{ padding: '18px' }}>
-        {
-          steps.map(({ label, optional }, step) => (
-            <Step key={label}>
-              <StepButton
-                onClick={() => setActiveStep(step)}
-                completed={!unvisited.includes(step) && !uncompleted.includes(step)}
-                optional={optional && <Typography variant="caption">Optional</Typography>}
-                disableRipple
-              >
-                { label }
-              </StepButton>
-            </Step>
-          ))
-        }
-      </Stepper>
-      <Box py={1} px={2} minHeight={300}>
-        <StepContent
-          proposal={proposal}
-          setProposal={setProposal}
-          validated={validated}
-          visit={() => visitStep(activeStep)}
-        />
-      </Box>
+      <Grid
+        container
+        spacing={2}
+      >
+        <Grid item xs={4}>
+          <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
+            {
+              steps.map(({ label, optional }, step) => (
+                <Step
+                  key={label}
+                  completed={!unvisited.includes(step) && !uncompleted.includes(step)}
+                  last={isLastStep()}
+                >
+                  <StepButton
+                    onClick={() => setActiveStep(step)}
+                    optional={optional && <Typography variant="caption">Optional</Typography>}
+                    disableRipple
+                  >
+                    {label}
+                  </StepButton>
+                </Step>
+              ))
+            }
+          </Stepper>
+        </Grid>
+        <Grid item xs={8}>
+          <Box py={1} px={2} minHeight={200}>
+            <StepContent
+              proposal={proposal}
+              setProposal={setProposal}
+              validated={validated}
+              visit={() => visitStep(activeStep)}
+            />
+          </Box>
+        </Grid>
+      </Grid>
       <Box my={2}>
         <Divider />
       </Box>
