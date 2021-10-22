@@ -58,9 +58,12 @@ const ProposalCreationStepper = ({
                   <StepButton
                     onClick={() => setActiveStep(step)}
                     optional={optional && <Typography variant="caption">Optional</Typography>}
-                    disableRipple
                   >
-                    {label}
+                    {
+                      step === activeStep
+                        ? <Typography variant="body2" color="primary.main">{label}</Typography>
+                        : <Typography variant="body2">{label}</Typography>
+                    }
                   </StepButton>
                 </Step>
               ))

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'Fördern fördern';
+    document.title = 'FörderAssist';
   }, []);
 
   return (

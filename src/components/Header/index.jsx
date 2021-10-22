@@ -1,27 +1,29 @@
 import {
-  AppBar, Box, Toolbar,
+  AppBar, Box, Toolbar, Typography,
 } from '@mui/material';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import React from 'react';
 
 import AppIcon from '../AppIcon';
 
 const Header = () => (
-  <div className="AppBar">
+  <Box sx={{ flexGrow: 1 }} className="ProposalSideHeader">
     <AppBar
       position="static"
-      color="secondary"
+      color="header"
       elevation={0}
     >
       <Toolbar>
-        <Box display="flex" maxWidth={1200} justifyContent="center" width="100%" mx="auto">
-          <Box display="flex" minWidth={200} justifyContent="flex-end" alignItems="center">
-            <AppIcon />
-            Fördern fördern
-          </Box>
+        <AppIcon />
+        <Typography>FörderAssist</Typography>
+        <Box sx={{ flexGrow: 1 }} />
+        <Box sx={{ display: { md: 'flex' } }}>
+          <Typography style={{ fontFamily: 'BundessansBold' }}>Anna Antragstellerin</Typography>
+          <AccountCircleOutlinedIcon />
         </Box>
       </Toolbar>
     </AppBar>
-  </div>
+  </Box>
 );
 
 export default Header;

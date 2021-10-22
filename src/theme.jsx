@@ -1,4 +1,4 @@
-import { blue, grey } from '@mui/material/colors';
+import { blue } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
 
 export default createTheme({
@@ -7,19 +7,37 @@ export default createTheme({
       default: blue[50],
     },
     primary: {
-      main: blue[800],
+      main: '#2a95f2',
     },
     secondary: {
       main: blue[50],
     },
+    header: {
+      main: '#fff',
+      text: '#707070',
+    },
     text: {
-      primary: grey[800],
+      primary: '#707070',
     },
   },
-  overrides: {
-    MuiTab: {
-      wrapper: {
-        flexDirection: 'row',
+  spacing: 4,
+  typography: {
+    fontFamily: [
+      'Bundessans',
+      'BundessansBold',
+    ].join(','),
+  },
+  components: {
+    MuiStepButton: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+    MuiStepIcon: {
+      defaultProps: {
+        style: {
+          fontWeight: 'bold',
+        },
       },
     },
   },

@@ -18,3 +18,9 @@ code {
   /* other formats include: 'woff2', 'truetype, 'opentype',
                             'embedded-opentype', and 'svg' */
 }
+@font-face {
+  font-family: 'BundessansBold';
+  src: local('BundessansBold'), url(./fonts/bundessansweb-bold-ttf-data.ttf) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}

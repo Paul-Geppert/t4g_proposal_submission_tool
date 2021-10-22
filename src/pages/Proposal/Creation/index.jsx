@@ -24,8 +24,8 @@ const ProposalCreation = () => {
 
   return (
     <Page
-      title="Proposal Creation"
-      description="A proposal is the first step of a public funding process."
+      title="Schreibtisch"
+      // description="A proposal is the first step of a public funding process."
       className="ProposalCreation"
     >
       <ProposalStepper

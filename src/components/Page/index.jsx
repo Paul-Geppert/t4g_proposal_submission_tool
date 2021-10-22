@@ -1,10 +1,10 @@
-import { Box, Typography } from '@mui/material';
-import { isEmpty, isString } from 'lodash';
+import { Box } from '@mui/material';
+import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
-import theme from '../../theme';
 import Container from '../Container';
+import PageHeader from '../PageHeader';
 
 const Page = ({
   children, description, plainTitle, title, wrapContainer,
@@ -15,22 +15,7 @@ const Page = ({
   if (isEmpty(title)) return null;
   return (
     <div className="Page">
-      <div style={{ backgroundColor: theme.palette.background.default }}>
-        <Container>
-          <Box display="flex" flexDirection="column">
-            <Box display="flex" justifyContent={description ? 'flexStart' : 'center'} pb={description ? 0 : 1}>
-              <Typography gutterBottom noWrap component="span" variant="h5">
-                { title }
-              </Typography>
-            </Box>
-            {!!description && (
-              isString(description)
-                ? <Typography variant="subtitle1" color="textSecondary" gutterBottom>{ description }</Typography>
-                : description
-            )}
-          </Box>
-        </Container>
-      </div>
+      <PageHeader title={title} description={description} />
       <Box mb={2}>
         {
           wrapContainer
