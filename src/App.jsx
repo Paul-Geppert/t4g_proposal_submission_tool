@@ -31,7 +31,6 @@ const App = () => {
         >
           <Box>
             <Header />
-            {/* <ProposalTool /> */}
             <Switch>
               <Route exact path="/">
                 <Home />
