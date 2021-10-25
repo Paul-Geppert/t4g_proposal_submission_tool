@@ -36,6 +36,13 @@ export default createTheme({
     },
   },
   components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 0,
+        },
+      },
+    },
     MuiStepButton: {
       defaultProps: {
         disableRipple: true,
