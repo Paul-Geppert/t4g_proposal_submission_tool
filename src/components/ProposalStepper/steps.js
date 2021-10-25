@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
 import GeneralStep from './components/GeneralStep';
+import MarkdownStep from './components/MarkdownStep';
 
 export const isComplete = (validated) => (properties) =>
   properties.every((prop) => validated[prop]);
@@ -15,8 +16,8 @@ export default Map([
   [
     'General Information 2',
     {
-      component: GeneralStep,
-      properties: ['name'],
+      component: MarkdownStep,
+      properties: ['markdown'],
     },
   ],
 ]);

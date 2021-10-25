@@ -33,13 +33,17 @@ const PageHeader = ({
   </Container>
 );
 
+PageHeader.defaultProps = {
+  description: '',
+};
+
 PageHeader.propTypes = {
   description: PropTypes
     .oneOfType([
       PropTypes.string,
       PropTypes.element,
       PropTypes.array,
-    ]).isRequired,
+    ]),
   title: PropTypes
     .oneOfType([
       PropTypes.string,

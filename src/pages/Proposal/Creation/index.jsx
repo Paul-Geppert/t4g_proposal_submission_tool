@@ -16,7 +16,7 @@ const ProposalCreation = () => {
 
   const onSubmit = () =>
     Proposal
-      .create({ content: proposal.name })
+      .create({ content: `# ${proposal.name}\n${proposal.markdown}` })
       .then(() => {
         history.push('next');
       })

@@ -34,8 +34,8 @@ export default createTheme({
       },
     },
     MuiStepIcon: {
-      defaultProps: {
-        style: {
+      styleOverrides: {
+        root: {
           fontWeight: 'bold',
         },
       },
