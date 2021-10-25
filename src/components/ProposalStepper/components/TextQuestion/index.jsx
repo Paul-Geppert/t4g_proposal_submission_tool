@@ -1,33 +1,36 @@
-import { TextField } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const TextQuestion = ({
-  id, label, internalQuestionName, placeholder, answer, onChange, validated,
+  id, question, label, internalQuestionName, placeholder, answer, onChange, validated,
 }) => {
   const [showError, setShowError] = useState(false);
   const isValid = showError && !validated;
 
   return (
     <div className="TextQuestion">
-      <TextField
-        id={id}
-        label={label}
-        name={internalQuestionName}
-        value={answer}
-        placeholder={placeholder}
-        onChange={({ target: { value } }) => {
-          setShowError(true);
-          onChange(value);
-        }}
-        error={isValid}
-        helperText={isValid && 'This field is required'}
-        variant="outlined"
-        size="small"
-        autoFocus
-        required
-        fullWidth
-      />
+      <Box display="flex" alignItems="center">
+        <Typography variant="body2">{question}</Typography>
+        <TextField
+          id={id}
+          label={label}
+          name={internalQuestionName}
+          value={answer}
+          placeholder={placeholder}
+          onChange={({ target: { value } }) => {
+            setShowError(true);
+            onChange(value);
+          }}
+          error={isValid}
+          helperText={isValid && 'This field is required'}
+          variant="outlined"
+          size="small"
+          autoFocus
+          required
+          fullWidth
+        />
+      </Box>
     </div>
   );
 };
@@ -39,6 +42,7 @@ TextQuestion.defaultProps = {
 
 TextQuestion.propTypes = {
   id: PropTypes.string.isRequired,
+  question: PropTypes.string.isRequired,
   label: PropTypes.string,
   internalQuestionName: PropTypes.string.isRequired,
   placeholder: PropTypes.string,

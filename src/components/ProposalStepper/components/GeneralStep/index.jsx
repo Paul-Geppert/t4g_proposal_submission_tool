@@ -17,6 +17,7 @@ const GeneralStep = ({ proposal, update, validated }) => (
       <Grid item xs>
         <TextQuestion
           id="foo"
+          question="Wie lautet der Name des Projekts?"
           label="Projektname"
           internalQuestionName="hidden name"
           placeholder="Name des Projektes"
