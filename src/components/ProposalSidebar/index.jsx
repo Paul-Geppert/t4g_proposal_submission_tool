@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {
-  Box, Drawer, List, ListItem, ListItemIcon, ListItemText,
+  Box, Drawer, Fade, List, ListItem, ListItemIcon, ListItemText, Popper,
 } from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import CommentIcon from '@mui/icons-material/Comment';
@@ -10,6 +10,7 @@ import InboxIcon from '@mui/icons-material/Inbox';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TocIcon from '@mui/icons-material/Toc';
 import SidebarButton from '../SidebarButton';
+import Contact from './components/Contact';
 
 const menuItems = [
   {
@@ -32,6 +33,15 @@ const menuItems = [
 
 export default function ProposalSidebar() {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  const [isPopperOpen, setIsPopperOpen] = React.useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const placement = 'bottom-end';
+
+  const triggerContactInfo = () => (event) => {
+    setAnchorEl(event.currentTarget);
+    setIsPopperOpen((prev) => !prev);
+  };
 
   const setDrawerState = (newState) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -63,8 +73,20 @@ export default function ProposalSidebar() {
 
   return (
     <Box display="flex" flexDirection="column" alignItems="flex-end" gap={2}>
+      <Popper
+        open={isPopperOpen}
+        anchorEl={anchorEl}
+        placement={placement}
+        transition
+      >
+        {({ TransitionProps }) => (
+          <Fade {...TransitionProps} timeout={350} sx={{ py: 5 }}>
+            <Contact />
+          </Fade>
+        )}
+      </Popper>
       <SidebarButton onClick={setDrawerState(true)} icon={CommentIcon} />
-      <SidebarButton onClick={setDrawerState(true)} icon={HelpIcon} />
+      <SidebarButton onClick={triggerContactInfo()} icon={HelpIcon} />
       <Drawer
         anchor="right"
         open={isOpen}
