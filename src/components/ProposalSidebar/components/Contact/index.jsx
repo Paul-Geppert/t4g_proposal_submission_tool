@@ -35,10 +35,14 @@ const Contact = React.forwardRef((props, ref) => {
         width="60%"
         gap={3}
       >
-        <div>
+        <Box
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+        >
           <Typography variant="body1" style={{ fontWeight: 'bold' }}>Max Mustermann</Typography>
           <Typography>Projektträger XY</Typography>
-        </div>
+        </Box>
         <Button
           color="primary"
           variant="contained"
