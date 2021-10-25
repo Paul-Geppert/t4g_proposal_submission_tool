@@ -71,11 +71,12 @@ const ProposalCreationStepper = ({
           ))
         }
       </Tabs>
+      <Divider sx={{ mb: 5 }} />
       <Grid
         container
         spacing={2}
       >
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
             {
               steps.map(({ label, optional }, step) => (
@@ -99,8 +100,8 @@ const ProposalCreationStepper = ({
             }
           </Stepper>
         </Grid>
-        <Grid item xs={8}>
-          <Box py={1} px={2} minHeight={200}>
+        <Grid item xs={9}>
+          <Box py={1} px={2} minHeight={300}>
             <StepContent
               proposal={proposal}
               setProposal={setProposal}

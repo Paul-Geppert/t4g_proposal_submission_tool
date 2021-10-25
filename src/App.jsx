@@ -1,4 +1,4 @@
-import { Box, IconButton } from '@mui/material';
+import { Box, Grid, IconButton } from '@mui/material';
 import { CloseOutlined } from '@mui/icons-material';
 import { ThemeProvider } from '@mui/material/styles';
 import { SnackbarProvider } from 'notistack';
@@ -8,6 +8,7 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import theme from './theme';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
 import Proposal from './pages/Proposal';
 import Home from './pages/Home';
 
@@ -31,14 +32,21 @@ const App = () => {
         >
           <Box>
             <Header />
-            <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
-              <Route path="/proposals">
-                <Proposal />
-              </Route>
-            </Switch>
+            <Grid
+              container
+            >
+              <Grid item xs={1}><Sidebar /></Grid>
+              <Grid item xs={11}>
+                <Switch>
+                  <Route exact path="/">
+                    <Home />
+                  </Route>
+                  <Route path="/proposals">
+                    <Proposal />
+                  </Route>
+                </Switch>
+              </Grid>
+            </Grid>
             <Footer />
           </Box>
         </SnackbarProvider>

@@ -3,7 +3,6 @@ import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
-import Container from '../Container';
 import PageHeader from '../PageHeader';
 
 const Page = ({
@@ -18,9 +17,7 @@ const Page = ({
       <PageHeader title={title} description={description} />
       <Box mb={2}>
         {
-          wrapContainer
-            ? (<Container>{ children }</Container>)
-            : children
+          children
         }
       </Box>
     </div>

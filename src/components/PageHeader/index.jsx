@@ -3,34 +3,24 @@ import { isString } from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Container from '../Container';
-
-import theme from '../../theme';
-
 const PageHeader = ({
   description, title,
 }) => (
-  <Container>
-    <Box display="flex" flexDirection="column">
-      <Typography
-        component="span"
-        variant="h5"
-        style={{
-          color: theme.palette.header.text,
-          fontFamily: 'BundessansBold',
-        }}
-        gutterBottom
-        noWrap
-      >
-        {title}
-      </Typography>
-      {!!description && (
-        isString(description)
-          ? <Typography variant="subtitle1" color="textSecondary" gutterBottom>{description}</Typography>
-          : description
-      )}
-    </Box>
-  </Container>
+  <Box display="flex" flexDirection="column">
+    <Typography
+      component="span"
+      variant="h5"
+      gutterBottom
+      noWrap
+    >
+      {title}
+    </Typography>
+    {!!description && (
+      isString(description)
+        ? <Typography variant="subtitle1" color="textSecondary" gutterBottom>{description}</Typography>
+        : description
+    )}
+  </Box>
 );
 
 PageHeader.defaultProps = {

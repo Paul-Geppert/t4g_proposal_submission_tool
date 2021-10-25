@@ -22,10 +22,18 @@ export default createTheme({
   },
   spacing: 4,
   typography: {
-    fontFamily: [
-      'Bundessans',
-      'BundessansBold',
-    ].join(','),
+    allVariants: {
+      color: '#707070',
+      fontFamily: [
+        'Bundessans',
+        'BundessansBold',
+      ].join(','),
+    },
+    h5: {
+      fontFamily: [
+        'BundessansBold',
+      ],
+    },
   },
   components: {
     MuiStepButton: {

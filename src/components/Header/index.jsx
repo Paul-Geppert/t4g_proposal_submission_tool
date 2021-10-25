@@ -17,7 +17,7 @@ const Header = () => (
         <AppIcon />
         <Typography>FörderAssist</Typography>
         <Box sx={{ flexGrow: 1 }} />
-        <Box sx={{ display: { md: 'flex' } }}>
+        <Box display="flex" alignItems="center">
           <Typography style={{ fontFamily: 'BundessansBold' }}>Anna Antragstellerin</Typography>
           <AccountCircleOutlinedIcon />
         </Box>
