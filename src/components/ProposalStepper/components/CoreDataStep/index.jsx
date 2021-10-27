@@ -98,7 +98,11 @@ class CoreDataStep extends React.Component {
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography variant="h5">Ausführende Stelle</Typography>
-          {/* <ContactInformation person={executor} onChange={this.updateInfo('executor')} /> */}
+          {
+            partners.length === 0 && !creator.name && (
+              <Typography variant="body2">Füllen Sie zunächst die Angaben über Skizzeneinreicher:in und Weitere Projektpartner:innen aus. Im Anschluss können Sie sie in der Liste auswählen.</Typography>
+            )
+          }
           <ExecutingPartner
             availablePartners={partners.concat([creator])}
             partner={executor}
