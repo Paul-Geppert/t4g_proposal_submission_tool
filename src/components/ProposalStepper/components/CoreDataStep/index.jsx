@@ -1,5 +1,5 @@
 import {
-  Box, Checkbox, FormControlLabel, Typography,
+  Box, Button, Checkbox, FormControlLabel, Typography,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -37,12 +37,28 @@ class CoreDataStep extends React.Component {
   constructor(props) {
     super(props);
     this.updateInfo = this.updateInfo.bind(this);
+    this.copyFromProfile = this.copyFromProfile.bind(this);
   }
 
   updateInfo = (key) => (value) => {
     const { update } = this.props;
     return update(key)(value);
   };
+
+  copyFromProfile = () => {
+    this.updateInfo('creator')({
+      city: 'Musterhausen',
+      country: 'Deutschland',
+      faxNumber: '',
+      houseNumber: '1',
+      mailAddress: 'anna@antragstellerin.de',
+      name: 'Anna Antragstellerin',
+      phoneNumber: '0123/456789',
+      street: 'Musterstraße',
+      webAddress: '',
+      zipCode: '10001',
+    });
+  }
 
   render() {
     const {
@@ -53,7 +69,16 @@ class CoreDataStep extends React.Component {
     return (
       <Box display="flex" flexDirection="column" gap={8}>
         <Box display="flex" flexDirection="column" gap={2}>
-          <Typography variant="h5">Skizzeneinreicher:in</Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="h5">Skizzeneinreicher:in</Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => this.copyFromProfile()}
+            >
+              Aus Profil übernehmen
+            </Button>
+          </Box>
           <ContactInformation person={creator} onChange={this.updateInfo('creator')} />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
