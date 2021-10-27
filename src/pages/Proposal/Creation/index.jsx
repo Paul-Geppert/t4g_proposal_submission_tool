@@ -15,7 +15,7 @@ const ProposalCreation = () => {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
   const [proposal, setProposal] = useState(empty);
-  const creationSteps = ['General Information', 'General Information 2'];
+  const creationSteps = ['Administrative Daten', 'General Information 2'];
 
   const onSubmit = () =>
     Proposal

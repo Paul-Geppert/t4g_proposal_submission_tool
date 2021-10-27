@@ -7,7 +7,7 @@ export const isComplete = (validated) => (properties) =>
 
 export default Map([
   [
-    'General Information',
+    'Administrative Daten',
     {
       component: CoreDataStep,
       properties: [],
