@@ -19,6 +19,10 @@ export default createTheme({
     text: {
       primary: '#707070',
     },
+    sidebar: {
+      background: '#2a95f2',
+      content: '#fff',
+    },
   },
   spacing: 4,
   typography: {
@@ -40,6 +44,27 @@ export default createTheme({
       styleOverrides: {
         root: {
           borderRadius: 0,
+        },
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#2a95f2',
+        },
+      },
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: 'inherit',
+        },
+      },
+    },
+    MuiListItemText: {
+      styleOverrides: {
+        primary: {
+          color: 'inherit',
         },
       },
     },

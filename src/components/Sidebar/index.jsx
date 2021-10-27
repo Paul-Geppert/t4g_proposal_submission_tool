@@ -53,7 +53,7 @@ export default function Sidebar() {
       onClick={setDrawerState(false)}
       onKeyDown={setDrawerState(false)}
     >
-      <List>
+      <List sx={{ color: 'sidebar.content' }}>
         {menuItems.map(({ title, ItemIcon, target }, index) => (
           <ListItem button key={title} component={Link} to={target}>
             <ListItemIcon>
@@ -69,9 +69,6 @@ export default function Sidebar() {
   return (
     <div>
       <React.Fragment key="left">
-        {/* <Button onClick={setDrawerState(true)}>
-          <MenuIcon />
-        </Button> */}
         <SidebarButton onClick={setDrawerState(true)} icon={MenuIcon} />
         <Drawer
           anchor="left"
