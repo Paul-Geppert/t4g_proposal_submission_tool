@@ -18,7 +18,7 @@ class ContactInformation extends React.Component {
     const {
       person: {
         city = '',
-        country = '',
+        country = 'Deutschland',
         faxNumber = '',
         houseNumber = '',
         mailAddress = '',
