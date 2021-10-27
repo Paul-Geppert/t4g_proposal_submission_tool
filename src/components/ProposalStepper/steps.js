@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import GeneralStep from './components/GeneralStep';
+import CoreDataStep from './components/CoreDataStep';
 import MarkdownStep from './components/MarkdownStep';
 
 export const isComplete = (validated) => (properties) =>
@@ -9,8 +9,8 @@ export default Map([
   [
     'General Information',
     {
-      component: GeneralStep,
-      properties: ['name'],
+      component: CoreDataStep,
+      properties: [],
     },
   ],
   [

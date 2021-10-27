@@ -10,7 +10,7 @@ const TextQuestion = ({
 
   return (
     <div className="TextQuestion">
-      <Box display="flex" alignItems="center">
+      <Box display="flex" flexDirection="column" gap={1}>
         <Typography variant="body2">{question}</Typography>
         <TextField
           id={id}

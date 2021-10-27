@@ -2,13 +2,16 @@ import { createContext } from 'react';
 import { nonBlank } from './validation';
 
 export const empty = {
-  name: '',
+  creator: {},
+  partners: [],
+  leader: {},
+  communicationPartner: {},
+  executor: '',
   markdown: '',
 };
 
 export const context = createContext(empty);
 
 export const validate = (proposal) => ({
-  name: nonBlank(proposal.name),
   markdown: nonBlank(proposal.markdown),
 });

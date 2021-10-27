@@ -31,7 +31,7 @@ const SidebarButton = ({ icon, ...props }) => {
 };
 
 SidebarButton.propTypes = {
-  icon: PropTypes.element.isRequired,
+  icon: PropTypes.elementType.isRequired,
 };
 
 export default SidebarButton;
