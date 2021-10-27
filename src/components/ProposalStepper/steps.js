@@ -1,6 +1,6 @@
 import { Map } from 'immutable';
+import ContentStep from './components/ContentStep';
 import CoreDataStep from './components/CoreDataStep';
-import MarkdownStep from './components/MarkdownStep';
 
 export const isComplete = (validated) => (properties) =>
   properties.every((prop) => validated[prop]);
@@ -14,10 +14,10 @@ export default Map([
     },
   ],
   [
-    'General Information 2',
+    'Complex content',
     {
-      component: MarkdownStep,
-      properties: ['markdown'],
+      component: ContentStep,
+      properties: [],
     },
   ],
 ]);

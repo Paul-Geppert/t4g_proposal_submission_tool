@@ -8,6 +8,7 @@ export const empty = {
   communicationPartner: {},
   executor: '',
   markdown: '',
+  content: ['', ''],
 };
 
 export const context = createContext(empty);
