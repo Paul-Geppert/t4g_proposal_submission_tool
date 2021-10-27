@@ -10,6 +10,7 @@ class AdditionalPartners extends React.Component {
     super(props);
     this.addPartner = this.addPartner.bind(this);
     this.updatePartner = this.updatePartner.bind(this);
+    this.removePartner = this.removePartner.bind(this);
   }
 
   addPartner = () => {
@@ -26,6 +27,15 @@ class AdditionalPartners extends React.Component {
     onChange(partners);
   }
 
+  removePartner = (i) => {
+    const { partners, onChange } = this.props;
+    if (partners.length === 0) {
+      return;
+    }
+    partners.splice(i, 1);
+    onChange(partners);
+  }
+
   render() {
     const { partners } = this.props;
     return (
@@ -35,11 +45,20 @@ class AdditionalPartners extends React.Component {
           {
             partners.map((partner, i) => (
               <Box key={i}>
-                <Typography variant="h5">
-                  Partner
-                  {' '}
-                  {i + 1}
-                </Typography>
+                <Box display="flex" justifyContent="space-between">
+                  <Typography variant="h5">
+                    Partner
+                    {' '}
+                    {i + 1}
+                  </Typography>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    onClick={() => this.removePartner(i)}
+                  >
+                    Löschen
+                  </Button>
+                </Box>
                 <ContactInformation
                   person={partner}
                   onChange={this.updatePartner(i)}

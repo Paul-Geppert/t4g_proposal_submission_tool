@@ -75,7 +75,7 @@ class CoreDataStep extends React.Component {
           <Typography variant="h5">Ausführende Stelle</Typography>
           {/* <ContactInformation person={executor} onChange={this.updateInfo('executor')} /> */}
           <ExecutingPartner
-            availablePartners={partners}
+            availablePartners={partners.concat([creator])}
             partner={executor}
             onChange={this.updateInfo('executor')}
           />
