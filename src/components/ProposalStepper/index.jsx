@@ -60,7 +60,7 @@ const ProposalCreationStepper = ({
         value={activeTab}
         onChange={handleTabChange}
         variant="fullWidth"
-        sx={{ mb: 5 }}
+        sx={{ my: 5 }}
       >
         {
           tabs.map((tab) => (

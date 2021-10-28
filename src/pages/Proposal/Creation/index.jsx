@@ -1,8 +1,9 @@
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
+import { NavigateBeforeOutlined } from '@mui/icons-material';
 import { get } from 'lodash';
 import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { generateEmptyForSteps, validate } from '../model';
 import * as Proposal from '../../../api/proposal';
@@ -10,6 +11,7 @@ import Page from '../../../components/Page';
 import ProposalStepper from '../../../components/ProposalStepper';
 import ProposalSidebar from '../../../components/ProposalSidebar';
 import steps from '../../../components/ProposalStepper/steps';
+import theme from '../../../theme';
 
 const ProposalCreation = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -26,13 +28,17 @@ const ProposalCreation = () => {
 
   return (
     <div>
-      {/* <Button
+      <Button
         component={Link}
         to="/"
         startIcon={<NavigateBeforeOutlined />}
+        sx={{
+          color: theme.palette.text.primary,
+          mb: 3,
+        }}
       >
-        Back
-      </Button> */}
+        Übersicht
+      </Button>
       <Page
         title="Schreibtisch"
         // description="A proposal is the first step of a public funding process."

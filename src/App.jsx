@@ -34,6 +34,7 @@ const App = () => {
             <Header />
             <Grid
               container
+              sx={{ mt: 5 }}
             >
               <Grid item xs={1}><Sidebar /></Grid>
               <Grid item xs={11}>

@@ -7,7 +7,7 @@ import React from 'react';
 import AppIcon from '../AppIcon';
 
 const Header = () => (
-  <Box sx={{ flexGrow: 1 }} className="ProposalSideHeader">
+  <Box sx={{ flexGrow: 1, my: 3 }} className="ProposalSideHeader">
     <AppBar
       position="static"
       color="header"
