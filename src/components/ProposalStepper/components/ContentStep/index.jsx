@@ -14,7 +14,7 @@ class ContentStep extends React.Component {
   updateContent = (i) => (value) => {
     const { update, idx, proposal: { content } } = this.props;
     const newContent = content;
-    newContent[idx][i] = value;
+    newContent[idx][i].answer = value;
     update('content')(newContent);
   }
 
@@ -31,7 +31,7 @@ class ContentStep extends React.Component {
                 q.title && (<Typography>{q.title}</Typography>)
               }
               <MarkdownQuestion
-                answer={content[idx][i]}
+                answer={content[idx][i].answer}
                 onChange={this.updateContent(i)}
               />
             </Box>

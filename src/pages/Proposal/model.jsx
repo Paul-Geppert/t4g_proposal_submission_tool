@@ -7,7 +7,6 @@ export const generateEmptyForSteps = (steps) => {
     leader: {},
     communicationPartner: {},
     executor: '',
-    markdown: '',
     content: [],
   };
 
@@ -16,8 +15,8 @@ export const generateEmptyForSteps = (steps) => {
     empty.content.push([]);
     if (steps[idx].questions) {
       // eslint-disable-next-line no-unused-vars, guard-for-in
-      for (const _i in steps[idx].questions) {
-        empty.content[idx].push('');
+      for (const q of steps[idx].questions) {
+        empty.content[idx].push({ title: q.title, answer: '' });
       }
     }
   }
