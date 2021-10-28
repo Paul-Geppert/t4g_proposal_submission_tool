@@ -7,11 +7,6 @@ export const create = (proposal) =>
     .post('http://localhost:3003/', proposal)
     .then();
 
-export const createFromTemplate = (proposal) =>
-  superagent
-    .post('http://localhost:3003/replace/', proposal)
-    .then();
-
 export const get = () =>
   superagent
     .get('http://localhost:3003/')
