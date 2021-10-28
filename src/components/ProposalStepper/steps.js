@@ -13,10 +13,10 @@ const steps = [
     properties: [],
     questions: [
       {
-        description: 'Schritt 2 Frage 1',
+        title: 'Schritt 2 Frage 1',
       },
       {
-        description: 'Schritt 2 Frage 2',
+        title: 'Schritt 2 Frage 2',
       },
     ],
   },
@@ -26,10 +26,10 @@ const steps = [
     properties: [],
     questions: [
       {
-        description: 'Schritt 3 Frage 1',
+        title: 'Schritt 3 Frage 1',
       },
       {
-        description: 'Schritt 3 Frage 2',
+        title: 'Schritt 3 Frage 2',
       },
     ],
   },

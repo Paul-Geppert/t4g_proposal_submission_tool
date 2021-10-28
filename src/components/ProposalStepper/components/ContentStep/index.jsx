@@ -28,7 +28,7 @@ class ContentStep extends React.Component {
           questions.map((q, i) => (
             <Box key={i}>
               {
-                q.description && (<Typography>{q.description}</Typography>)
+                q.title && (<Typography>{q.title}</Typography>)
               }
               <MarkdownQuestion
                 answer={content[idx][i]}
@@ -43,16 +43,14 @@ class ContentStep extends React.Component {
 }
 
 ContentStep.propTypes = {
-  // questions: PropTypes.arrayOf({
-  //   type: PropTypes.string.isRequired,
-  //   description: PropTypes.string,
-  // }).isRequired,
   proposal: PropTypes.shape({
     content: PropTypes.array,
   }).isRequired,
   update: PropTypes.func.isRequired,
   idx: PropTypes.number.isRequired,
-  questions: PropTypes.array.isRequired,
+  questions: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  })).isRequired,
 };
 
 export default withStep(ContentStep);

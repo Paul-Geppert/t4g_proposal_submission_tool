@@ -52,7 +52,7 @@ class CoreDataStep extends React.Component {
       faxNumber: '',
       houseNumber: '1',
       mailAddress: 'anna@antragstellerin.de',
-      name: 'Anna Antragstellerin',
+      name: 'Innova Startup',
       phoneNumber: '0123/456789',
       street: 'Musterstraße',
       webAddress: '',
