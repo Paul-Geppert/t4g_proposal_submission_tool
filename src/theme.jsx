@@ -65,6 +65,7 @@ export default createTheme({
       styleOverrides: {
         primary: {
           color: 'inherit',
+          fontSize: '1.5rem',
         },
       },
     },

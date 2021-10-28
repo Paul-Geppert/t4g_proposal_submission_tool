@@ -52,6 +52,9 @@ export default function Sidebar() {
       role="presentation"
       onClick={setDrawerState(false)}
       onKeyDown={setDrawerState(false)}
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
     >
       <List sx={{ color: 'sidebar.content' }}>
         {menuItems.map(({ title, ItemIcon, target }, index) => (
