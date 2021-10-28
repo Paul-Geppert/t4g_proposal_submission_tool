@@ -4,18 +4,17 @@ import { useSnackbar } from 'notistack';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import { empty, validate } from '../model';
+import { generateEmptyForSteps, validate } from '../model';
 import * as Proposal from '../../../api/proposal';
 import Page from '../../../components/Page';
 import ProposalStepper from '../../../components/ProposalStepper';
-import steps from '../../../components/ProposalStepper/steps';
 import ProposalSidebar from '../../../components/ProposalSidebar';
+import steps from '../../../components/ProposalStepper/steps';
 
 const ProposalCreation = () => {
   const { enqueueSnackbar } = useSnackbar();
   const history = useHistory();
-  const [proposal, setProposal] = useState(empty);
-  const creationSteps = ['Administrative Daten', 'Complex content'];
+  const [proposal, setProposal] = useState(generateEmptyForSteps(steps));
 
   const onSubmit = () =>
     Proposal
@@ -45,7 +44,7 @@ const ProposalCreation = () => {
               proposal={proposal}
               setProposal={setProposal}
               validated={validate(proposal)}
-              steps={creationSteps.map((step) => ({ ...steps.get(step), label: step }))}
+              steps={steps}
               onSubmit={onSubmit}
             />
           </Grid>

@@ -5,12 +5,6 @@ import { Box, Typography } from '@mui/material';
 import MarkdownQuestion from '../MarkdownQuestion';
 import withStep from '../../HOC/withStep';
 
-const questions = [{
-  description: 'Hallo',
-}, {
-  description: 'Foo',
-}];
-
 class ContentStep extends React.Component {
   constructor(props) {
     super(props);
@@ -18,14 +12,15 @@ class ContentStep extends React.Component {
   }
 
   updateContent = (i) => (value) => {
-    const { update, proposal: { content } } = this.props;
+    const { update, idx, proposal: { content } } = this.props;
     const newContent = content;
-    newContent[i] = value;
+    newContent[idx][i] = value;
     update('content')(newContent);
   }
 
   render() {
-    const { proposal: { content } } = this.props;
+    const { idx, proposal: { content } } = this.props;
+    const { questions } = this.props;
 
     return (
       <Box display="flex" flexDirection="column" gap={6}>
@@ -36,7 +31,7 @@ class ContentStep extends React.Component {
                 q.description && (<Typography>{q.description}</Typography>)
               }
               <MarkdownQuestion
-                answer={content[i]}
+                answer={content[idx][i]}
                 onChange={this.updateContent(i)}
               />
             </Box>
@@ -56,6 +51,8 @@ ContentStep.propTypes = {
     content: PropTypes.array,
   }).isRequired,
   update: PropTypes.func.isRequired,
+  idx: PropTypes.number.isRequired,
+  questions: PropTypes.array.isRequired,
 };
 
 export default withStep(ContentStep);

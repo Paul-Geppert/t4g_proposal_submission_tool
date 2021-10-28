@@ -2,11 +2,11 @@ import {
   Box, Divider, Grid, Step, StepButton, Stepper, Tab, Tabs, Typography,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-
 import { OrderedSet } from 'immutable';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-
+import ContentStep from './components/ContentStep';
+import CoreDataStep from './components/CoreDataStep';
 import Navigation from './components/Navigation';
 import { isComplete } from './steps';
 
@@ -20,6 +20,7 @@ const ProposalCreationStepper = ({
   proposal, setProposal, validated, steps, onSubmit,
 }) => {
   const tabs = ['Skizzenbearbeitung', 'Arbeitspakete', 'Kommentare', 'Assistenz'];
+
   const [activeStep, setActiveStep] = useState(0);
   const [unvisited, setUnvisited] = useState(OrderedSet(steps.map((_, i) => i)));
   const [activeTab, setActiveTab] = useState(0);
@@ -53,8 +54,6 @@ const ProposalCreationStepper = ({
         : 0,
     );
 
-  const StepContent = steps[activeStep].component;
-
   return (
     <Box className="ProposalCreationStepper" sx={{ mb: 2 }}>
       <Tabs
@@ -79,9 +78,9 @@ const ProposalCreationStepper = ({
         <Grid item xs={3}>
           <Stepper activeStep={activeStep} orientation="vertical" nonLinear>
             {
-              steps.map(({ label, optional }, step) => (
+              steps.map(({ title, optional }, step) => (
                 <Step
-                  key={label}
+                  key={title}
                   completed={!unvisited.includes(step) && !uncompleted.includes(step)}
                   last={isLastStep()}
                 >
@@ -91,8 +90,8 @@ const ProposalCreationStepper = ({
                   >
                     {
                       step === activeStep
-                        ? <Typography variant="body2" color="primary.main">{label}</Typography>
-                        : <Typography variant="body2">{label}</Typography>
+                        ? <Typography variant="body2" color="primary.main">{title}</Typography>
+                        : <Typography variant="body2">{title}</Typography>
                     }
                   </StepButton>
                 </Step>
@@ -102,12 +101,27 @@ const ProposalCreationStepper = ({
         </Grid>
         <Grid item xs={9}>
           <Box py={1} px={2} minHeight={300}>
-            <StepContent
-              proposal={proposal}
-              setProposal={setProposal}
-              validated={validated}
-              visit={() => visitStep(activeStep)}
-            />
+            {
+              activeStep === 0
+                ? (
+                  <CoreDataStep
+                    proposal={proposal}
+                    setProposal={setProposal}
+                    validated={validated}
+                    visit={() => visitStep(activeStep)}
+                  />
+                )
+                : (
+                  <ContentStep
+                    proposal={proposal}
+                    setProposal={setProposal}
+                    validated={validated}
+                    visit={() => visitStep(activeStep)}
+                    idx={activeStep}
+                    questions={steps[activeStep].questions}
+                  />
+                )
+            }
           </Box>
         </Grid>
       </Grid>
@@ -133,8 +147,9 @@ ProposalCreationStepper.propTypes = {
   validated: PropTypes.object.isRequired,
   steps: PropTypes.arrayOf(
     PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: PropTypes.func.isRequired,
+      title: PropTypes.string.isRequired,
+      component: PropTypes.string.isRequired,
+      questions: PropTypes.array,
       properties: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
       optional: PropTypes.bool,
     }),
