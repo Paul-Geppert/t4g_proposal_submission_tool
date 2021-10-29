@@ -3,33 +3,42 @@ export const isComplete = (validated) => (properties) =>
 
 const steps = [
   {
-    title: 'Schritt 1',
+    title: 'Administrative Daten',
     component: 'core',
     properties: [],
   },
   {
-    title: 'Schritt 2',
+    title: 'Vorhabensbeschreibung',
     component: 'content',
     properties: [],
     questions: [
       {
-        title: 'Schritt 2 Frage 1',
+        title: 'Kurzbeschreibung',
       },
       {
-        title: 'Schritt 2 Frage 2',
+        title: 'Projektsteckbrief',
+      },
+      {
+        title: 'Management Summary',
       },
     ],
   },
   {
-    title: 'Schritt 3',
+    title: 'Gesamtziel des Vorhabens',
     component: 'content',
     properties: [],
     questions: [
       {
-        title: 'Schritt 3 Frage 1',
+        title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',
       },
       {
-        title: 'Schritt 3 Frage 2',
+        title: 'Kernziel des Vorhabens und Projektidee',
+      },
+      {
+        title: 'Erläuterung des Bezugs des Vorhabens zum Förderaufruf ',
+      },
+      {
+        title: 'Abgrenzung und Alleinstellungsmerkmal gegenüber inhaltlich ähnlich gelagerten UAS & Flugtaxis-Förderprojekten',
       },
     ],
   },
