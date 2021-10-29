@@ -6,7 +6,7 @@ import React, { createRef } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import theme from './theme';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Proposal from './pages/Proposal';

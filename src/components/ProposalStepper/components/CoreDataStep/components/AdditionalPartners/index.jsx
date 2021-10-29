@@ -11,6 +11,7 @@ class AdditionalPartners extends React.Component {
     this.addPartner = this.addPartner.bind(this);
     this.updatePartner = this.updatePartner.bind(this);
     this.removePartner = this.removePartner.bind(this);
+    this.setExampleData = this.setExampleData.bind(this);
   }
 
   addPartner = () => {
@@ -25,6 +26,21 @@ class AdditionalPartners extends React.Component {
     merge(nextPartner, value);
     partners[i] = nextPartner;
     onChange(partners);
+  }
+
+  setExampleData = (i) => {
+    this.updatePartner(i)({
+      city: 'Musterhausen',
+      country: 'Deutschland',
+      faxNumber: '',
+      houseNumber: `${i}`,
+      mailAddress: `partner_${i}@example.de`,
+      name: `Example Partner ${i}`,
+      phoneNumber: `0123/${456780 + i}`,
+      street: 'Beispielstraße',
+      webAddress: '',
+      zipCode: '10001',
+    });
   }
 
   removePartner = (i) => {
@@ -51,6 +67,13 @@ class AdditionalPartners extends React.Component {
                     {' '}
                     {i + 1}
                   </Typography>
+                  <Button
+                    variant="contained"
+                    onClick={() => this.setExampleData(i)}
+                    sx={{ backgroundColor: 'red' }}
+                  >
+                    Beispieldaten einfügen
+                  </Button>
                   <Button
                     variant="contained"
                     color="secondary"

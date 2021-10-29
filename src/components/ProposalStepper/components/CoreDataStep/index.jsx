@@ -60,6 +60,36 @@ class CoreDataStep extends React.Component {
     });
   }
 
+  setExampleDataLeader = () => {
+    this.updateInfo('leader')({
+      city: 'Koordinationsstadt',
+      country: 'Deutschland',
+      faxNumber: '',
+      houseNumber: '17',
+      mailAddress: 'projekt@leitung.de',
+      name: 'Projektmanagement GmbH',
+      phoneNumber: '+49 178 1957234',
+      street: 'Koordstraße',
+      webAddress: '',
+      zipCode: '10001',
+    });
+  }
+
+  setExampleDataCommunicationPartner = () => {
+    this.updateInfo('communicationPartner')({
+      city: 'Kommunikationsstadt',
+      country: 'Deutschland',
+      faxNumber: '',
+      houseNumber: '33',
+      mailAddress: 'projekt@kommunikation.de',
+      name: 'Ina Müller',
+      phoneNumber: '+49 178 1957237',
+      street: 'Kommunikationsstraße',
+      webAddress: '',
+      zipCode: '10002',
+    });
+  }
+
   render() {
     const {
       proposal: {
@@ -89,11 +119,29 @@ class CoreDataStep extends React.Component {
           />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
-          <Typography variant="h5">Projektkoordination/-Leitung</Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="h5">Projektkoordination/-Leitung</Typography>
+            <Button
+              variant="contained"
+              onClick={() => this.setExampleDataLeader()}
+              sx={{ backgroundColor: 'red' }}
+            >
+              Beispieldaten einfügen
+            </Button>
+          </Box>
           <ContactInformation person={leader} onChange={this.updateInfo('leader')} />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
-          <Typography variant="h5">Ansprechperson Projektleitung</Typography>
+          <Box display="flex" justifyContent="space-between">
+            <Typography variant="h5">Ansprechperson Projektleitung</Typography>
+            <Button
+              variant="contained"
+              onClick={() => this.setExampleDataCommunicationPartner()}
+              sx={{ backgroundColor: 'red' }}
+            >
+              Beispieldaten einfügen
+            </Button>
+          </Box>
           <ContactInformation person={communicationPartner} onChange={this.updateInfo('communicationPartner')} />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
