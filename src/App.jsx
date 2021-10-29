@@ -47,8 +47,11 @@ const App = () => {
                   </Route>
                 </Switch>
               </Grid>
+              {/* <Grid item xs={1} />
+              <Grid item xs={11}>
+                <Footer />
+              </Grid> */}
             </Grid>
-            <Footer />
           </Box>
         </SnackbarProvider>
       </ThemeProvider>

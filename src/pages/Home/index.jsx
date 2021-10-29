@@ -12,23 +12,25 @@ const Home = () => {
       className="Home"
       display="flex"
       flexDirection="column"
+      alignItems="center"
     >
       <Button
-        color="inherit"
+        color="primary"
         variant="outlined"
         component={Link}
         to="/proposals/create"
+        sx={{ maxWidth: '50%' }}
       >
-        Create new proposal
+        Neue SKizze erstellen
       </Button>
-      <Button
+      {/* <Button
         color="inherit"
         variant="outlined"
         component={Link}
         to="/proposals/next"
       >
         See next steps
-      </Button>
+      </Button> */}
     </Box>
   );
 };
