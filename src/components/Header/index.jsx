@@ -14,7 +14,15 @@ const Header = () => (
       elevation={0}
     >
       <Toolbar>
-        <AppIcon />
+        <AppIcon
+          size="large"
+          color="primary"
+          sx={{
+            height: '50px',
+            width: 'auto',
+          }}
+          linkToHome
+        />
         <Box sx={{ flexGrow: 1 }} />
         <Box display="flex" alignItems="center">
           <Typography style={{ fontFamily: 'BundessansBold' }}>Anna Antragstellerin</Typography>

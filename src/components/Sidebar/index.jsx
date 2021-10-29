@@ -1,15 +1,18 @@
 import * as React from 'react';
 import {
-  Box, Drawer, List, ListItem, ListItemIcon, ListItemText,
+  Box, Button, Drawer, List, ListItem, ListItemText,
 } from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import DesktopWindowsIcon from '@mui/icons-material/DesktopWindows';
+import { CloseOutlined } from '@mui/icons-material';
 import InboxIcon from '@mui/icons-material/Inbox';
 import MenuIcon from '@mui/icons-material/Menu';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TocIcon from '@mui/icons-material/Toc';
 import { Link } from 'react-router-dom';
+import AppIcon from '../AppIcon';
 import SidebarButton from '../SidebarButton';
+import theme from '../../theme';
 
 const menuItems = [
   {
@@ -47,25 +50,47 @@ export default function Sidebar() {
   };
 
   const listItems = () => (
-    <Box
-      sx={{ width: 250 }}
-      role="presentation"
-      onClick={setDrawerState(false)}
-      onKeyDown={setDrawerState(false)}
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-    >
-      <List sx={{ color: 'sidebar.content' }}>
-        {menuItems.map(({ title, ItemIcon, target }, index) => (
-          <ListItem button key={title} component={Link} to={target}>
-            <ListItemIcon>
+    <Box>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        p={5}
+      >
+        <AppIcon
+          size="large"
+          sx={{
+            fill: theme.palette.sidebar.content,
+            height: '50px',
+            width: 'auto',
+          }}
+        />
+        <Box sx={{ flexGrow: 1 }} />
+        <Button
+          startIcon={<CloseOutlined />}
+          sx={{ color: theme.palette.sidebar.content }}
+          onClick={setDrawerState(false)}
+        />
+      </Box>
+      <Box
+        sx={{ width: 250 }}
+        role="presentation"
+        onClick={setDrawerState(false)}
+        onKeyDown={setDrawerState(false)}
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <List sx={{ color: 'sidebar.content' }}>
+          {menuItems.map(({ title, ItemIcon, target }, index) => (
+            <ListItem button key={title} component={Link} to={target}>
+              {/* <ListItemIcon>
               <ItemIcon />
-            </ListItemIcon>
-            <ListItemText primary={title} />
-          </ListItem>
-        ))}
-      </List>
+            </ListItemIcon> */}
+              <ListItemText primary={title} />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Box>
   );
 
