@@ -1,7 +1,10 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import PropTypes from 'prop-types';
-import TextQuestion from '../../../TextQuestion';
+import EmailQuestion from '../../../Questions/EmailQuestion';
+import PhoneQuestion from '../../../Questions/PhoneQuestion';
+import TextQuestion from '../../../Questions/TextQuestion';
+import UrlQuestion from '../../../Questions/UrlQuestion';
 
 class ContactInformation extends React.Component {
   constructor(props) {
@@ -17,17 +20,18 @@ class ContactInformation extends React.Component {
   render() {
     const {
       person: {
-        city = '',
-        country = '',
-        faxNumber = '',
-        houseNumber = '',
-        mailAddress = '',
-        name = '',
-        phoneNumber = '',
-        street = '',
-        webAddress = '',
-        zipCode = '',
+        city,
+        country,
+        faxNumber,
+        houseNumber,
+        mailAddress,
+        name,
+        phoneNumber,
+        street,
+        webAddress,
+        zipCode,
       },
+      validated,
     } = this.props;
 
     return (
@@ -41,7 +45,7 @@ class ContactInformation extends React.Component {
             placeholder="z.B. DigitalSerivce4Germany GmbH"
             answer={name}
             onChange={this.updatePersonalData('name')}
-            validated
+            validated={validated.name}
           />
         </Grid>
         <Grid item xs={9} sx={{ pr: 2 }}>
@@ -53,7 +57,7 @@ class ContactInformation extends React.Component {
             placeholder="Straße"
             answer={street}
             onChange={this.updatePersonalData('street')}
-            validated
+            validated={validated.street}
           />
         </Grid>
         <Grid item xs={3}>
@@ -65,7 +69,7 @@ class ContactInformation extends React.Component {
             placeholder="Hausnummer"
             answer={houseNumber}
             onChange={this.updatePersonalData('houseNumber')}
-            validated
+            validated={validated.houseNumber}
           />
         </Grid>
         <Grid item xs={3} sx={{ pr: 2 }}>
@@ -77,7 +81,7 @@ class ContactInformation extends React.Component {
             placeholder="Postleitzahl"
             answer={zipCode}
             onChange={this.updatePersonalData('zipCode')}
-            validated
+            validated={validated.zipCode}
           />
         </Grid>
         <Grid item xs={9}>
@@ -89,7 +93,7 @@ class ContactInformation extends React.Component {
             placeholder="Ort"
             answer={city}
             onChange={this.updatePersonalData('city')}
-            validated
+            validated={validated.city}
           />
         </Grid>
         <Grid item xs={4}>
@@ -101,12 +105,12 @@ class ContactInformation extends React.Component {
             placeholder="Land"
             answer={country}
             onChange={this.updatePersonalData('country')}
-            validated
+            validated={validated.country}
           />
         </Grid>
         <Grid item xs={8} />
         <Grid item xs={6} sx={{ pr: 2 }}>
-          <TextQuestion
+          <PhoneQuestion
             id=""
             question="Telefonnummer"
             label=""
@@ -114,11 +118,10 @@ class ContactInformation extends React.Component {
             placeholder="Telefonnummer"
             answer={phoneNumber}
             onChange={this.updatePersonalData('phoneNumber')}
-            validated
           />
         </Grid>
         <Grid item xs={6}>
-          <TextQuestion
+          <PhoneQuestion
             id=""
             question="Faxnummer"
             label=""
@@ -126,11 +129,10 @@ class ContactInformation extends React.Component {
             placeholder="Faxnummer"
             answer={faxNumber}
             onChange={this.updatePersonalData('faxNumber')}
-            validated
           />
         </Grid>
         <Grid item xs={6} sx={{ pr: 2 }}>
-          <TextQuestion
+          <EmailQuestion
             id=""
             question="E-Mail-Adresse"
             label=""
@@ -138,11 +140,10 @@ class ContactInformation extends React.Component {
             placeholder="E-Mail-Adresse"
             answer={mailAddress}
             onChange={this.updatePersonalData('mailAddress')}
-            validated
           />
         </Grid>
         <Grid item xs={6}>
-          <TextQuestion
+          <UrlQuestion
             id=""
             question="Web-Adresse"
             label=""
@@ -150,7 +151,6 @@ class ContactInformation extends React.Component {
             placeholder="Web-Adresse"
             answer={webAddress}
             onChange={this.updatePersonalData('webAddress')}
-            validated
           />
         </Grid>
       </Grid>
@@ -161,6 +161,7 @@ class ContactInformation extends React.Component {
 ContactInformation.propTypes = {
   person: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
+  validated: PropTypes.object.isRequired,
 };
 
 export default ContactInformation;

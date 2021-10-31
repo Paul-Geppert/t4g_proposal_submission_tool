@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import ContentStep from './components/ContentStep';
 import CoreDataStep from './components/CoreDataStep';
 import Navigation from './components/Navigation';
-import { isComplete } from './steps';
+import { isComplete } from '../../pages/Proposal/model';
 
 const CustomizedTab = styled(Tab)`
   & .Mui-selected {

@@ -1,15 +1,16 @@
 import { Box, TextField, Typography } from '@mui/material';
+import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { isValidEmail } from '../../../../../pages/Proposal/validation';
 
-const TextQuestion = ({
-  id, question, label, internalQuestionName, placeholder, answer, onChange, validated,
+const EmailQuestion = ({
+  id, question, label, internalQuestionName, placeholder, answer, onChange,
 }) => {
-  const [showError, setShowError] = useState(false);
-  const isValid = showError && !validated;
+  const [isValid, setValid] = useState(isEmpty(answer) || isValidEmail(answer));
 
   return (
-    <div className="TextQuestion">
+    <div className="EmailQuestion">
       <Box display="flex" flexDirection="column" gap={1}>
         <Typography variant="body2">{question}</Typography>
         <TextField
@@ -19,15 +20,13 @@ const TextQuestion = ({
           value={answer}
           placeholder={placeholder}
           onChange={({ target: { value } }) => {
-            setShowError(true);
+            setValid(isEmpty(value) || isValidEmail(value));
             onChange(value);
           }}
-          error={isValid}
-          helperText={isValid && 'This field is required'}
+          error={!isValid}
+          helperText={!isValid && 'Ungültige E-Mail-Adresse.'}
           variant="outlined"
           size="small"
-          autoFocus
-          required
           fullWidth
         />
       </Box>
@@ -35,12 +34,12 @@ const TextQuestion = ({
   );
 };
 
-TextQuestion.defaultProps = {
+EmailQuestion.defaultProps = {
   label: '',
   placeholder: '',
 };
 
-TextQuestion.propTypes = {
+EmailQuestion.propTypes = {
   id: PropTypes.string.isRequired,
   question: PropTypes.string.isRequired,
   label: PropTypes.string,
@@ -48,7 +47,6 @@ TextQuestion.propTypes = {
   placeholder: PropTypes.string,
   answer: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  validated: PropTypes.bool.isRequired,
 };
 
-export default TextQuestion;
+export default EmailQuestion;

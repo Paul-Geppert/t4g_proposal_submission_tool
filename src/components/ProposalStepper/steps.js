@@ -1,11 +1,9 @@
-export const isComplete = (validated) => (properties) =>
-  properties.every((prop) => validated[prop]);
-
 const steps = [
   {
     title: 'Administrative Daten',
     component: 'core',
-    properties: [],
+    // properties: ['creator', 'partners', 'leader', 'communicationPartner', 'executor'],
+    properties: ['executor', 'dataProtection'],
   },
   {
     title: 'Vorhabensbeschreibung',

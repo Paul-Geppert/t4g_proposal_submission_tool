@@ -4,6 +4,7 @@ import { merge } from 'lodash';
 import PropTypes from 'prop-types';
 
 import ContactInformation from '../ContactInformation';
+import { emptyPerson } from '../../../../../../pages/Proposal/model';
 
 class AdditionalPartners extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class AdditionalPartners extends React.Component {
 
   addPartner = () => {
     const { partners, onChange } = this.props;
-    partners.push({});
+    partners.push({ ...emptyPerson });
     onChange(partners);
   }
 
@@ -36,7 +37,7 @@ class AdditionalPartners extends React.Component {
       houseNumber: `${i}`,
       mailAddress: `partner_${i}@example.de`,
       name: `Example Partner ${i}`,
-      phoneNumber: `0123/${456780 + i}`,
+      phoneNumber: `+49123/${456780 + i}`,
       street: 'Beispielstraße',
       webAddress: '',
       zipCode: '10001',
@@ -53,7 +54,7 @@ class AdditionalPartners extends React.Component {
   }
 
   render() {
-    const { partners } = this.props;
+    const { partners, validated } = this.props;
     return (
       <Box display="flex" flexDirection="column">
         <Button onClick={this.addPartner}>+ Partner hinzufügen</Button>
@@ -85,6 +86,7 @@ class AdditionalPartners extends React.Component {
                 <ContactInformation
                   person={partner}
                   onChange={this.updatePartner(i)}
+                  validated={validated[i]}
                 />
               </Box>
             ))
@@ -98,6 +100,7 @@ class AdditionalPartners extends React.Component {
 AdditionalPartners.propTypes = {
   partners: PropTypes.array.isRequired,
   onChange: PropTypes.func.isRequired,
+  validated: PropTypes.array.isRequired,
 };
 
 export default AdditionalPartners;

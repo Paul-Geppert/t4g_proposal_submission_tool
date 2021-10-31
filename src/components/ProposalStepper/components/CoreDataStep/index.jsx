@@ -1,5 +1,5 @@
 import {
-  Box, Button, Checkbox, FormControlLabel, Typography,
+  Box, Button, Typography,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,31 +7,8 @@ import React from 'react';
 import withStep from '../../HOC/withStep';
 import AdditionalPartners from './components/AdditionalPartners';
 import ContactInformation from './components/ContactInformation';
+import DataProtectionInfo from './components/ContactInformation/components/DataProtection';
 import ExecutingPartner from './components/ExecutingPartner';
-
-const dataProtectionText = `Die in der Skizze enthaltenen personenbezogenen Daten und sonstigen Angaben werden vom Empfänger der Skizze und seinen Beauftragten im Rahmen seiner/ihrer Zuständigkeit erhoben, verarbeitet und genutzt.
-Eine Weitergabe dieser Daten an andere Stellen richtet sich nach dem Bundesdatenschutzgesetz (BDSG) bzw. diesem vorgehenden Rechtsvorschriften (§1 Abs. 3 BDSG).
-Soweit in der Skizze personenbezogene Daten von Beschäftigten des/der Einreichers/in oder sonstigen natürlichen Personen enthalten sind, wurden diese entsprechend den Datenschutzhinweisen informiert und deren Einverständnis eingeholt.`;
-
-// const questions = [{
-//   id: 'projectName',
-//   xmlElement: '',
-//   type: 'text',
-//   question: 'Wie lautet der Name des Projekts?',
-//   labelTool: 'Projektname',
-//   labelPDF: '', // if empty / not existing: use labelTool
-//   placeholder: 'Name des Projekts',
-//   profileKey: '', // if not empty: get information from profile data
-// }, {
-//   id: 'proposalCreator',
-//   xmlElement: '',
-//   type: 'text',
-//   question: 'Wie lautet ihr Name?',
-//   labelTool: 'Name Skizzenersteller:in',
-//   labelPDF: '', // if empty / not existing: use labelTool
-//   placeholder: 'Name',
-//   profileKey: '', // if not empty: get information from profile data
-// }];
 
 class CoreDataStep extends React.Component {
   constructor(props) {
@@ -53,7 +30,7 @@ class CoreDataStep extends React.Component {
       houseNumber: '1',
       mailAddress: 'anna@antragstellerin.de',
       name: 'Innova Startup',
-      phoneNumber: '0123/456789',
+      phoneNumber: '+49123/456789',
       street: 'Musterstraße',
       webAddress: '',
       zipCode: '10001',
@@ -93,8 +70,9 @@ class CoreDataStep extends React.Component {
   render() {
     const {
       proposal: {
-        creator, partners, leader, communicationPartner, executor,
+        creator, partners, leader, communicationPartner, executor, dataProtection,
       },
+      validated,
     } = this.props;
     return (
       <Box display="flex" flexDirection="column" gap={8}>
@@ -109,13 +87,18 @@ class CoreDataStep extends React.Component {
               Aus Profil übernehmen
             </Button>
           </Box>
-          <ContactInformation person={creator} onChange={this.updateInfo('creator')} />
+          <ContactInformation
+            person={creator}
+            onChange={this.updateInfo('creator')}
+            validated={validated.creator}
+          />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography variant="h5">Weitere Projektpartner:innen</Typography>
           <AdditionalPartners
             partners={partners}
             onChange={this.updateInfo('partners')}
+            validated={validated.partners}
           />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
@@ -129,7 +112,11 @@ class CoreDataStep extends React.Component {
               Beispieldaten einfügen
             </Button>
           </Box>
-          <ContactInformation person={leader} onChange={this.updateInfo('leader')} />
+          <ContactInformation
+            person={leader}
+            onChange={this.updateInfo('leader')}
+            validated={validated.leader}
+          />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
           <Box display="flex" justifyContent="space-between">
@@ -142,7 +129,11 @@ class CoreDataStep extends React.Component {
               Beispieldaten einfügen
             </Button>
           </Box>
-          <ContactInformation person={communicationPartner} onChange={this.updateInfo('communicationPartner')} />
+          <ContactInformation
+            person={communicationPartner}
+            onChange={this.updateInfo('communicationPartner')}
+            validated={validated.communicationPartner}
+          />
         </Box>
         <Box display="flex" flexDirection="column" gap={2}>
           <Typography variant="h5">Ausführende Stelle</Typography>
@@ -159,8 +150,10 @@ class CoreDataStep extends React.Component {
         </Box>
         <Box display="flex" flexDirection="column" alignItems="flex-start" gap={2}>
           <Typography variant="h5">Datenschutzhinweis</Typography>
-          <Typography>{dataProtectionText}</Typography>
-          <FormControlLabel control={<Checkbox />} label="Ja" />
+          <DataProtectionInfo
+            answer={dataProtection}
+            onChange={this.updateInfo('dataProtection')}
+          />
         </Box>
       </Box>
     );
@@ -174,9 +167,10 @@ CoreDataStep.propTypes = {
     leader: PropTypes.object,
     communicationPartner: PropTypes.object,
     executor: PropTypes.string,
+    dataProtection: PropTypes.bool,
   }).isRequired,
   update: PropTypes.func.isRequired,
-  // validated: PropTypes.object.isRequired,
+  validated: PropTypes.object.isRequired,
 };
 
 export default withStep(CoreDataStep);
