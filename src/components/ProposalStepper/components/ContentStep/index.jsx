@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
-import MarkdownQuestion from '../MarkdownQuestion';
+import MarkdownQuestion from '../Questions/MarkdownQuestion';
 import withStep from '../../HOC/withStep';
 
 class ContentStep extends React.Component {
@@ -28,7 +28,7 @@ class ContentStep extends React.Component {
           questions.map((q, i) => (
             <Box key={i}>
               {
-                q.title && (<Typography>{q.title}</Typography>)
+                q.title && (<Typography sx={{ mb: 3 }} variant="h5">{q.title}</Typography>)
               }
               <MarkdownQuestion
                 answer={content[idx][i].answer}
