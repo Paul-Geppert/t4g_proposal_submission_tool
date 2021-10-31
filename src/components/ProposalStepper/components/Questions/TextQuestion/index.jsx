@@ -23,10 +23,9 @@ const TextQuestion = ({
             onChange(value);
           }}
           error={isValid}
-          helperText={isValid && 'This field is required'}
+          helperText={isValid && 'Dieses Feld ist verpflichtend.'}
           variant="outlined"
           size="small"
-          required
           fullWidth
         />
       </Box>

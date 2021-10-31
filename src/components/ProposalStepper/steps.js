@@ -2,8 +2,7 @@ const steps = [
   {
     title: 'Administrative Daten',
     component: 'core',
-    // properties: ['creator', 'partners', 'leader', 'communicationPartner', 'executor'],
-    properties: ['executor', 'dataProtection'],
+    properties: ['creator', 'partners', 'leader', 'communicationPartner', 'executor', 'dataProtection'],
   },
   {
     title: 'Vorhabensbeschreibung',

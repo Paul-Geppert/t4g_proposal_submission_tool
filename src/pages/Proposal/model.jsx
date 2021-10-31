@@ -60,5 +60,26 @@ export const validate = (proposal) => ({
   dataProtection: proposal.dataProtection,
 });
 
+const isPersonComplete = (validated) =>
+  [
+    'name',
+    'city',
+    'street',
+    'zipCode',
+    'houseNumber',
+    'country',
+  ].every((prop) => validated[prop]);
+
 export const isComplete = (validated) => (properties) =>
-  properties.every((prop) => validated[prop]);
+  properties.every((prop) => {
+    // One of the top level properties
+    if (typeof validated[prop] === 'boolean') {
+      return validated[prop];
+    }
+    // partners property
+    if (Array.isArray(validated[prop])) {
+      return validated[prop].every((p) => isPersonComplete(p));
+    }
+    // person (creator, leader, communicationPartner)
+    return isPersonComplete(validated[prop]);
+  });
