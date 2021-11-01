@@ -22,7 +22,7 @@ const MarkdownQuestion = ({
           variant="caption"
           color="error"
         >
-          Dieses Feld darf nicht leer sein.
+          Dieses Feld ist verpflichtend.
         </Typography>
       )}
     </Box>

@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { isValidPhone } from '../../../../../pages/Proposal/validation';
 
 const PhoneQuestion = ({
-  id, question, label, internalQuestionName, placeholder, answer, onChange,
+  question, label, placeholder, answer, onChange,
 }) => {
   const [isValid, setValid] = useState(isEmpty(answer) || isValidPhone(answer));
 
@@ -14,9 +14,7 @@ const PhoneQuestion = ({
       <Box display="flex" flexDirection="column" gap={1}>
         <Typography variant="body2">{question}</Typography>
         <TextField
-          id={id}
           label={label}
-          name={internalQuestionName}
           value={answer}
           placeholder={placeholder}
           onChange={({ target: { value } }) => {
@@ -40,10 +38,8 @@ PhoneQuestion.defaultProps = {
 };
 
 PhoneQuestion.propTypes = {
-  id: PropTypes.string.isRequired,
   question: PropTypes.string.isRequired,
   label: PropTypes.string,
-  internalQuestionName: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   answer: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

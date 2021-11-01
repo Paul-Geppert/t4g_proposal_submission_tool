@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { isValidEmail } from '../../../../../pages/Proposal/validation';
 
 const EmailQuestion = ({
-  id, question, label, internalQuestionName, placeholder, answer, onChange,
+  question, label, placeholder, answer, onChange,
 }) => {
   const [isValid, setValid] = useState(isEmpty(answer) || isValidEmail(answer));
 
@@ -14,9 +14,7 @@ const EmailQuestion = ({
       <Box display="flex" flexDirection="column" gap={1}>
         <Typography variant="body2">{question}</Typography>
         <TextField
-          id={id}
           label={label}
-          name={internalQuestionName}
           value={answer}
           placeholder={placeholder}
           onChange={({ target: { value } }) => {
@@ -40,10 +38,8 @@ EmailQuestion.defaultProps = {
 };
 
 EmailQuestion.propTypes = {
-  id: PropTypes.string.isRequired,
   question: PropTypes.string.isRequired,
   label: PropTypes.string,
-  internalQuestionName: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   answer: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
