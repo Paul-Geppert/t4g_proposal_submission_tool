@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 const TextQuestion = ({
-  id, question, label, internalQuestionName, placeholder, answer, onChange, validated,
+  question, label, placeholder, answer, onChange, validated, ...props
 }) => {
   const [showError, setShowError] = useState(false);
   const isValid = showError && !validated;
@@ -13,9 +13,7 @@ const TextQuestion = ({
       <Box display="flex" flexDirection="column" gap={1}>
         <Typography variant="body2">{question}</Typography>
         <TextField
-          id={id}
           label={label}
-          name={internalQuestionName}
           value={answer}
           placeholder={placeholder}
           onChange={({ target: { value } }) => {
@@ -27,6 +25,7 @@ const TextQuestion = ({
           variant="outlined"
           size="small"
           fullWidth
+          {...props}
         />
       </Box>
     </div>
@@ -34,15 +33,14 @@ const TextQuestion = ({
 };
 
 TextQuestion.defaultProps = {
+  question: '',
   label: '',
   placeholder: '',
 };
 
 TextQuestion.propTypes = {
-  id: PropTypes.string.isRequired,
-  question: PropTypes.string.isRequired,
+  question: PropTypes.string,
   label: PropTypes.string,
-  internalQuestionName: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   answer: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

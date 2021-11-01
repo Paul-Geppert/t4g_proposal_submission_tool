@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
 import MarkdownQuestion from '../Questions/MarkdownQuestion';
+import TextQuestion from '../Questions/TextQuestion';
 import withStep from '../../HOC/withStep';
 
 class ContentStep extends React.Component {
@@ -34,11 +35,26 @@ class ContentStep extends React.Component {
               {
                 q.title && (<Typography sx={{ mb: 3 }} variant="h5">{q.title}</Typography>)
               }
-              <MarkdownQuestion
-                answer={content[idx][i].answer}
-                onChange={this.updateContent(i)}
-                validated={validated[idx][i]}
-              />
+              {
+                q.type === 'markdown' && (
+                  <MarkdownQuestion
+                    answer={content[idx][i].answer}
+                    onChange={this.updateContent(i)}
+                    validated={validated[idx][i]}
+                  />
+                )
+              }
+              {
+                q.type === 'multilineText' && (
+                  <TextQuestion
+                    answer={content[idx][i].answer}
+                    onChange={this.updateContent(i)}
+                    validated={validated[idx][i]}
+                    multiline
+                    rows={4}
+                  />
+                )
+              }
             </Box>
           ))
         }
@@ -55,6 +71,7 @@ ContentStep.propTypes = {
   idx: PropTypes.number.isRequired,
   questions: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
   })).isRequired,
   validated: PropTypes.array.isRequired,
 };

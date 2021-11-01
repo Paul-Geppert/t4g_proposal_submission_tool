@@ -11,12 +11,15 @@ const steps = [
     questions: [
       {
         title: 'Kurzbeschreibung',
+        type: 'multilineText',
       },
       {
         title: 'Projektsteckbrief',
+        type: 'markdown',
       },
       {
         title: 'Management Summary',
+        type: 'markdown',
       },
     ],
   },
@@ -27,15 +30,19 @@ const steps = [
     questions: [
       {
         title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',
+        type: 'markdown',
       },
       {
         title: 'Kernziel des Vorhabens und Projektidee',
+        type: 'markdown',
       },
       {
         title: 'Erläuterung des Bezugs des Vorhabens zum Förderaufruf ',
+        type: 'markdown',
       },
       {
         title: 'Abgrenzung und Alleinstellungsmerkmal gegenüber inhaltlich ähnlich gelagerten UAS & Flugtaxis-Förderprojekten',
+        type: 'markdown',
       },
     ],
   },
