@@ -19,8 +19,12 @@ class ContentStep extends React.Component {
   }
 
   render() {
-    const { idx, proposal: { content } } = this.props;
-    const { questions } = this.props;
+    const {
+      idx,
+      questions,
+      validated,
+      proposal: { content },
+    } = this.props;
 
     return (
       <Box display="flex" flexDirection="column" gap={6}>
@@ -33,6 +37,7 @@ class ContentStep extends React.Component {
               <MarkdownQuestion
                 answer={content[idx][i].answer}
                 onChange={this.updateContent(i)}
+                validated={validated[idx][i]}
               />
             </Box>
           ))
@@ -51,6 +56,7 @@ ContentStep.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
   })).isRequired,
+  validated: PropTypes.array.isRequired,
 };
 
 export default withStep(ContentStep);
