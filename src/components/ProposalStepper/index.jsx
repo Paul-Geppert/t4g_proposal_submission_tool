@@ -1,7 +1,7 @@
 import {
-  Box, Divider, Grid, Step, StepButton, Stepper, Tab, Tabs, Typography,
+  Box, Divider, Grid, Step, StepButton, Stepper, Typography,
 } from '@mui/material';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import { OrderedSet } from 'immutable';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -10,20 +10,20 @@ import CoreDataStep from './components/CoreDataStep';
 import Navigation from './components/Navigation';
 import { isComplete } from '../../pages/Proposal/model';
 
-const CustomizedTab = styled(Tab)`
-  & .Mui-selected {
-    color: #0000ff !important;
-  }
-`;
+// const CustomizedTab = styled(Tab)`
+//   & .Mui-selected {
+//     color: #0000ff !important;
+//   }
+// `;
 
 const ProposalCreationStepper = ({
   proposal, setProposal, validated, steps, onSubmit,
 }) => {
-  const tabs = ['Skizzenbearbeitung', 'Arbeitspakete', 'Kommentare', 'Assistenz'];
+  // const tabs = ['Skizzenbearbeitung', 'Arbeitspakete', 'Kommentare', 'Assistenz'];
 
   const [activeStep, setActiveStep] = useState(0);
   const [unvisited, setUnvisited] = useState(OrderedSet(steps.map((_, i) => i)));
-  const [activeTab, setActiveTab] = useState(0);
+  // const [activeTab, setActiveTab] = useState(0);
 
   const uncompleted = OrderedSet(
     steps
@@ -31,9 +31,9 @@ const ProposalCreationStepper = ({
       .filter((step) => !isComplete(validated)(steps[step].properties)(step)),
   );
 
-  const handleTabChange = (event, newTab) => {
-    setActiveTab(newTab);
-  };
+  // const handleTabChange = (event, newTab) => {
+  //   setActiveTab(newTab);
+  // };
 
   const visitStep = (step) =>
     setUnvisited(unvisited.delete(step));
@@ -56,7 +56,7 @@ const ProposalCreationStepper = ({
 
   return (
     <Box className="ProposalCreationStepper" sx={{ mb: 2 }}>
-      <Tabs
+      {/* <Tabs
         value={activeTab}
         onChange={handleTabChange}
         variant="fullWidth"
@@ -70,7 +70,7 @@ const ProposalCreationStepper = ({
           ))
         }
       </Tabs>
-      <Divider sx={{ mb: 5 }} />
+      <Divider sx={{ mb: 5 }} /> */}
       <Grid
         container
         spacing={2}

@@ -44,7 +44,7 @@ const ProposalCreation = () => {
         // description="A proposal is the first step of a public funding process."
         className="ProposalCreation"
       >
-        <Grid container>
+        <Grid container sx={{ mt: 5 }}>
           <Grid item xs={11}>
             <ProposalStepper
               proposal={proposal}
