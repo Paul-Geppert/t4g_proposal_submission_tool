@@ -7,7 +7,7 @@ const steps = [
   {
     title: 'Vorhabensbeschreibung',
     component: 'content',
-    properties: [],
+    properties: ['content'],
     questions: [
       {
         title: 'Kurzbeschreibung',
@@ -23,7 +23,7 @@ const steps = [
   {
     title: 'Gesamtziel des Vorhabens',
     component: 'content',
-    properties: [],
+    properties: ['content'],
     questions: [
       {
         title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',

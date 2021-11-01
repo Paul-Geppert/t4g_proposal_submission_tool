@@ -51,6 +51,8 @@ const validatePerson = (person) => ({
   zipCode: nonBlank(person.zipCode),
 });
 
+const isContentValid = (content) => content.map((question) => nonBlank(question.answer));
+
 export const validate = (proposal) => ({
   creator: validatePerson(proposal.creator),
   leader: validatePerson(proposal.leader),
@@ -58,6 +60,7 @@ export const validate = (proposal) => ({
   partners: proposal.partners.map((p) => validatePerson(p)),
   executor: nonBlank(proposal.executor),
   dataProtection: proposal.dataProtection,
+  content: proposal.content.map((c) => isContentValid(c)),
 });
 
 const isPersonComplete = (validated) =>
@@ -70,16 +73,24 @@ const isPersonComplete = (validated) =>
     'country',
   ].every((prop) => validated[prop]);
 
-export const isComplete = (validated) => (properties) =>
+const isMarkdownContentComplete = (validated, i) => validated[i].every((a) => a);
+
+export const isComplete = (validated) => (properties) => (i) =>
   properties.every((prop) => {
     // One of the top level properties
     if (typeof validated[prop] === 'boolean') {
       return validated[prop];
     }
-    // partners property
-    if (Array.isArray(validated[prop])) {
-      return validated[prop].every((p) => isPersonComplete(p));
+    switch (prop) {
+      case 'partners':
+        return validated[prop].every((p) => isPersonComplete(p));
+      case 'creator':
+      case 'leader':
+      case 'communicationPartner':
+        return isPersonComplete(validated[prop]);
+      case 'content':
+        return isMarkdownContentComplete(validated[prop], i);
+      default:
+        return true;
     }
-    // person (creator, leader, communicationPartner)
-    return isPersonComplete(validated[prop]);
   });

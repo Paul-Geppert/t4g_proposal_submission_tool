@@ -28,7 +28,7 @@ const ProposalCreationStepper = ({
   const uncompleted = OrderedSet(
     steps
       .map((_, i) => i)
-      .filter((step) => !isComplete(validated)(steps[step].properties)),
+      .filter((step) => !isComplete(validated)(steps[step].properties)(step)),
   );
 
   const handleTabChange = (event, newTab) => {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { merge } from 'lodash';
 
 import {
-  Box, Button, Typography,
+  Box, Typography,
 } from '@mui/material';
 
 import contactImage from '../../../../image/logo192.png';
