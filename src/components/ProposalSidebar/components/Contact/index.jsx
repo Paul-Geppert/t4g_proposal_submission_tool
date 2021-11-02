@@ -5,7 +5,7 @@ import {
   Box, Button, Typography,
 } from '@mui/material';
 
-import contactImage from '../../../../image/logo192.png';
+import contactImage from '../../../../image/bearbeiter.png';
 
 import theme from '../../../../theme';
 
@@ -24,6 +24,7 @@ const Contact = React.forwardRef((props, ref) => {
       flexDirection="column"
       alignItems="center"
       ref={ref}
+      gap={3}
       {...props}
     >
       <Typography variant="h5">Ansprechpartner:in</Typography>
