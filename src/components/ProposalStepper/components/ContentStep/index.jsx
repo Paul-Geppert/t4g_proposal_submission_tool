@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import MarkdownQuestion from '../Questions/MarkdownQuestion';
 import TextQuestion from '../Questions/TextQuestion';
 import withStep from '../../HOC/withStep';
@@ -32,9 +32,18 @@ class ContentStep extends React.Component {
         {
           questions.map((q, i) => (
             <Box key={i}>
-              {
-                q.title && (<Typography sx={{ mb: 3 }} variant="h5">{q.title}</Typography>)
-              }
+              <Box display="flex" justifyContent="space-between">
+                {
+                  q.title && (<Typography sx={{ mb: 3 }} variant="h5">{q.title}</Typography>)
+                }
+                <Button
+                  variant="contained"
+                  onClick={() => this.updateContent(i)(q.exampleAnswer || '')}
+                  sx={{ backgroundColor: 'red' }}
+                >
+                  Beispieldaten einfügen
+                </Button>
+              </Box>
               {
                 q.type === 'markdown' && (
                   <MarkdownQuestion
@@ -72,6 +81,7 @@ ContentStep.propTypes = {
   questions: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    exampleAnswer: PropTypes.string,
   })).isRequired,
   validated: PropTypes.array.isRequired,
 };

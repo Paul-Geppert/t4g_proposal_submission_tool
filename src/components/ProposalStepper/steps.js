@@ -12,14 +12,17 @@ const steps = [
       {
         title: 'Kurzbeschreibung',
         type: 'multilineText',
+        exampleAnswer: 'a',
       },
       {
         title: 'Projektsteckbrief',
         type: 'markdown',
+        exampleAnswer: 'b',
       },
       {
         title: 'Management Summary',
         type: 'markdown',
+        exampleAnswer: 'c',
       },
     ],
   },
@@ -31,18 +34,22 @@ const steps = [
       {
         title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',
         type: 'markdown',
+        exampleAnswer: 'd',
       },
       {
         title: 'Kernziel des Vorhabens und Projektidee',
         type: 'markdown',
+        exampleAnswer: 'e',
       },
       {
         title: 'Erläuterung des Bezugs des Vorhabens zum Förderaufruf ',
         type: 'markdown',
+        exampleAnswer: 'f',
       },
       {
         title: 'Abgrenzung und Alleinstellungsmerkmal gegenüber inhaltlich ähnlich gelagerten UAS & Flugtaxis-Förderprojekten',
         type: 'markdown',
+        exampleAnswer: 'g',
       },
     ],
   },
