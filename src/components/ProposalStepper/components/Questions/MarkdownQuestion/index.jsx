@@ -16,6 +16,7 @@ const MarkdownQuestion = ({
           setShowError(true);
           onChange(value);
         }}
+        height={350}
       />
       {showError && !validated && (
         <Typography
