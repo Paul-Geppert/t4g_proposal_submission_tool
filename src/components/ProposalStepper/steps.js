@@ -12,7 +12,7 @@ const steps = [
       {
         title: 'Kurzbeschreibung',
         type: 'multilineText',
-        exampleAnswer: 'a',
+        exampleAnswer: 'In diesem Forschungs- und Entwicklungsvorhaben möchten wir ein umweltfreundliches Flugtaxi mit Wasserstoffantrieb entwickeln.',
       },
       {
         title: 'Projektsteckbrief',
@@ -22,7 +22,14 @@ const steps = [
       {
         title: 'Management Summary',
         type: 'markdown',
-        exampleAnswer: 'c',
+        exampleAnswer: `Flugtaxis (siehe Abbildung 1) bieten eine neuartige Fortbewegungsart.
+
+![Abbildung eines Flutaxis](https://www.golem.de/1905/141054-195064-195063_rc.jpg)
+Abbildung 1
+
+Anders als Flugzeuge, handelt es sich um für ein Verkehrsmittel, das für die breite Masse der Bevölkerung gedacht ist.
+
+Damit die Verkehrs- und Klimawende erfolgreich umgesetzt wird, ist das entwickeln neuartiger, umweltfreundlicher Antriebe und Fahrzeuge unerlässlich. Als Konsortium aus Privatwirtschaft und Wissenschaft wollen eben so ein Fahrzeug inklusive umweltfreundlichen, CO2-neutralen Antrieb entwickeln.`,
       },
     ],
   },
