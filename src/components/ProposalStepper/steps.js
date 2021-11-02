@@ -17,7 +17,17 @@ const steps = [
       {
         title: 'Projektsteckbrief',
         type: 'markdown',
-        exampleAnswer: 'b',
+        exampleAnswer: `## Projektziel
+
+Entwicklung eines **umweltfreundlichen** Flugtaxis zum Transport von bis zu 4 Personen. Folgende Eigenschaften sollen erzielt werden:
+
+- umweltfreundlicher Antrieb auf Wasserstoffbasis
+- leiser Antrieb
+- Zulassung für Flugbetrieb
+
+## Verwertungsabsicht
+
+Im Anschluss soll das Flugtaxi im privaten **öffentlichen Nahverkehr** angeboten werden. Ferner soll es aber auch frei verfügbar, z.B. im **Einzelhandel** oder in ähnlichen Modellen wie Car-Sharing.`,
       },
       {
         title: 'Management Summary',
