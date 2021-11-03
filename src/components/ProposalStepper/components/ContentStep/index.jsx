@@ -9,14 +9,14 @@ import withStep from '../../HOC/withStep';
 class ContentStep extends React.Component {
   constructor(props) {
     super(props);
-    this.updateContent = this.updateContent.bind(this);
+    this.updateFreeText = this.updateFreeText.bind(this);
   }
 
-  updateContent = (i) => (value) => {
-    const { update, idx, proposal: { content } } = this.props;
-    const newContent = content;
-    newContent[idx][i].answer = value;
-    update('content')(newContent);
+  updateFreeText = (i) => (value) => {
+    const { update, idx, proposal: { freeText } } = this.props;
+    const newFreeText = freeText;
+    newFreeText[idx][i].answer = value;
+    update('freeText')(newFreeText);
   }
 
   render() {
@@ -24,7 +24,7 @@ class ContentStep extends React.Component {
       idx,
       questions,
       validated,
-      proposal: { content },
+      proposal: { freeText },
     } = this.props;
 
     return (
@@ -38,7 +38,7 @@ class ContentStep extends React.Component {
                 }
                 <Button
                   variant="contained"
-                  onClick={() => this.updateContent(i)(q.exampleAnswer || '')}
+                  onClick={() => this.updateFreeText(i)(q.exampleAnswer || '')}
                   sx={{ backgroundColor: 'red' }}
                 >
                   Beispieldaten einfügen
@@ -47,8 +47,8 @@ class ContentStep extends React.Component {
               {
                 q.type === 'markdown' && (
                   <MarkdownQuestion
-                    answer={content[idx][i].answer}
-                    onChange={this.updateContent(i)}
+                    answer={freeText[idx][i].answer}
+                    onChange={this.updateFreeText(i)}
                     validated={validated[idx][i]}
                   />
                 )
@@ -56,8 +56,8 @@ class ContentStep extends React.Component {
               {
                 q.type === 'multilineText' && (
                   <TextQuestion
-                    answer={content[idx][i].answer}
-                    onChange={this.updateContent(i)}
+                    answer={freeText[idx][i].answer}
+                    onChange={this.updateFreeText(i)}
                     validated={validated[idx][i]}
                     multiline
                     rows={4}
@@ -74,7 +74,7 @@ class ContentStep extends React.Component {
 
 ContentStep.propTypes = {
   proposal: PropTypes.shape({
-    content: PropTypes.array,
+    freeText: PropTypes.array,
   }).isRequired,
   update: PropTypes.func.isRequired,
   idx: PropTypes.number.isRequired,

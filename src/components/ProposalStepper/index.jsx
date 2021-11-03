@@ -115,7 +115,7 @@ const ProposalCreationStepper = ({
                   <ContentStep
                     proposal={proposal}
                     setProposal={setProposal}
-                    validated={validated.content}
+                    validated={validated.freeText}
                     visit={() => visitStep(activeStep)}
                     idx={activeStep}
                     questions={steps[activeStep].questions}

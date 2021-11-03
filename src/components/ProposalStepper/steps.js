@@ -7,7 +7,7 @@ const steps = [
   {
     title: 'Vorhabensbeschreibung',
     component: 'content',
-    properties: ['content'],
+    properties: ['freeText'],
     questions: [
       {
         title: 'Kurzbeschreibung',
@@ -46,7 +46,7 @@ Damit die Verkehrs- und Klimawende erfolgreich umgesetzt wird, ist das entwickel
   {
     title: 'Gesamtziel des Vorhabens',
     component: 'content',
-    properties: ['content'],
+    properties: ['freeText'],
     questions: [
       {
         title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',

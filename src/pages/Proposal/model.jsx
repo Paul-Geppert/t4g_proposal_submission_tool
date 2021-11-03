@@ -20,17 +20,20 @@ export const generateEmptyForSteps = (steps) => {
     leader: { ...emptyPerson },
     communicationPartner: { ...emptyPerson },
     executor: '',
-    content: [],
     dataProtection: false,
+    // freeText will hold an array with length === number of steps
+    // each object will be an array holding the answers of the long text input
+    // (multiline and markdown questions / answers)
+    freeText: [],
   };
 
   // eslint-disable-next-line guard-for-in
   for (const idx in steps) {
-    empty.content.push([]);
+    empty.freeText.push([]);
     if (steps[idx].questions) {
       // eslint-disable-next-line no-unused-vars, guard-for-in
       for (const q of steps[idx].questions) {
-        empty.content[idx].push({ title: q.title, answer: '' });
+        empty.freeText[idx].push({ title: q.title, answer: '' });
       }
     }
   }
@@ -51,7 +54,7 @@ const validatePerson = (person) => ({
   zipCode: nonBlank(person.zipCode),
 });
 
-const isContentValid = (content) => content.map((question) => nonBlank(question.answer));
+const isFreeTextValid = (freeText) => freeText.map((question) => nonBlank(question.answer));
 
 export const validate = (proposal) => ({
   creator: validatePerson(proposal.creator),
@@ -60,7 +63,7 @@ export const validate = (proposal) => ({
   partners: proposal.partners.map((p) => validatePerson(p)),
   executor: nonBlank(proposal.executor),
   dataProtection: proposal.dataProtection,
-  content: proposal.content.map((c) => isContentValid(c)),
+  freeText: proposal.freeText.map((c) => isFreeTextValid(c)),
 });
 
 const isPersonComplete = (validated) =>
@@ -73,7 +76,7 @@ const isPersonComplete = (validated) =>
     'country',
   ].every((prop) => validated[prop]);
 
-const isMarkdownContentComplete = (validated, i) => validated[i].every((a) => a);
+const isFreeTextComplete = (validated, i) => validated[i].every((a) => a);
 
 export const isComplete = (validated) => (properties) => (i) =>
   properties.every((prop) => {
@@ -88,8 +91,8 @@ export const isComplete = (validated) => (properties) => (i) =>
       case 'leader':
       case 'communicationPartner':
         return isPersonComplete(validated[prop]);
-      case 'content':
-        return isMarkdownContentComplete(validated[prop], i);
+      case 'freeText':
+        return isFreeTextComplete(validated[prop], i);
       default:
         return true;
     }
