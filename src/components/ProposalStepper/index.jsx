@@ -10,30 +10,17 @@ import CoreDataStep from './components/CoreDataStep';
 import Navigation from './components/Navigation';
 import { isComplete } from '../../pages/Proposal/model';
 
-// const CustomizedTab = styled(Tab)`
-//   & .Mui-selected {
-//     color: #0000ff !important;
-//   }
-// `;
-
 const ProposalCreationStepper = ({
   proposal, setProposal, validated, steps, onSubmit,
 }) => {
-  // const tabs = ['Skizzenbearbeitung', 'Arbeitspakete', 'Kommentare', 'Assistenz'];
-
   const [activeStep, setActiveStep] = useState(0);
   const [unvisited, setUnvisited] = useState(OrderedSet(steps.map((_, i) => i)));
-  // const [activeTab, setActiveTab] = useState(0);
 
   const uncompleted = OrderedSet(
     steps
       .map((_, i) => i)
       .filter((step) => !isComplete(validated)(steps[step].properties)(step)),
   );
-
-  // const handleTabChange = (event, newTab) => {
-  //   setActiveTab(newTab);
-  // };
 
   const visitStep = (step) =>
     setUnvisited(unvisited.delete(step));
@@ -56,21 +43,6 @@ const ProposalCreationStepper = ({
 
   return (
     <Box className="ProposalCreationStepper" sx={{ mb: 2 }}>
-      {/* <Tabs
-        value={activeTab}
-        onChange={handleTabChange}
-        variant="fullWidth"
-        sx={{ my: 5 }}
-      >
-        {
-          tabs.map((tab) => (
-            tab === activeTab
-              ? <CustomizedTab key={tab} label={tab} sx={{ fontFamily: 'BundessansBold' }} />
-              : <CustomizedTab key={tab} label={tab} />
-          ))
-        }
-      </Tabs>
-      <Divider sx={{ mb: 5 }} /> */}
       <Grid
         container
         spacing={2}

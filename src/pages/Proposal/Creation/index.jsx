@@ -41,7 +41,6 @@ const ProposalCreation = () => {
       </Button>
       <Page
         title="Schreibtisch"
-        // description="A proposal is the first step of a public funding process."
         className="ProposalCreation"
       >
         <Grid container sx={{ mt: 5 }}>

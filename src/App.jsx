@@ -6,7 +6,6 @@ import React, { createRef } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 
 import theme from './theme';
-// import Footer from './components/Footer';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Proposal from './pages/Proposal';
@@ -47,10 +46,6 @@ const App = () => {
                   </Route>
                 </Switch>
               </Grid>
-              {/* <Grid item xs={1} />
-              <Grid item xs={11}>
-                <Footer />
-              </Grid> */}
             </Grid>
           </Box>
         </SnackbarProvider>

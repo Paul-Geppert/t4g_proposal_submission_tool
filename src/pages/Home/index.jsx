@@ -23,14 +23,6 @@ const Home = () => {
       >
         Neue SKizze erstellen
       </Button>
-      {/* <Button
-        color="inherit"
-        variant="outlined"
-        component={Link}
-        to="/proposals/next"
-      >
-        See next steps
-      </Button> */}
     </Box>
   );
 };

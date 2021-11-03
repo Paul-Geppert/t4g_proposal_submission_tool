@@ -83,9 +83,6 @@ export default function Sidebar() {
         <List sx={{ color: 'sidebar.content' }}>
           {menuItems.map(({ title, ItemIcon, target }, index) => (
             <ListItem button key={title} component={Link} to={target}>
-              {/* <ListItemIcon>
-              <ItemIcon />
-            </ListItemIcon> */}
               <ListItemText primary={title} />
             </ListItem>
           ))}

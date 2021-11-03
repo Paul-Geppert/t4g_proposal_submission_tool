@@ -11,7 +11,6 @@ const withStep = (WrappedComponent) => ({
       merge(newProposal, { [key]: value });
       return newProposal;
     });
-    // setProposal((prev) => ({ ...prev, [key]: value }));
   };
 
   useEffect(() => {
