@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# T4G Proposal Backend
+
+[![Alt text](https://tech.4germany.org/wp-content/uploads/2020/01/Logo-Final-02-copy-1-300x109-1.png)](https://tech.4germany.org)
+
+This project/repository is a very simple **prototype** to showcast one specific functionality: Create a proposal for public funding application, and insert it into the existing [easy-Online](https://foerderportal.bund.de/easyonline/) system via XML upload. Further, an additional PDF will be generated, containing all relevant information, to support easy-Online, but also other submission methods like email.
+
+It is not intended to be used in production or as reference for a future implementation.
+
+Find more information about the project here: \<link will be added soon>.
+
+This is a very simple and basic frontend to:
+
+- gather required core data to generate the XML file for easy-Online
+- gather (example) content for the proposal
+- allow the user to download the generated PDF and XML data to insert it into easy-Online
+- provide simple checks for completeness and data validation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Current flaws and problems
+
+This project is just a very simple prototype to showcast one specific functionality. It is not intended to be used in production or as reference for a future implementation.
+
+However, here are the main points that should be addressed in the future:
+
+- this frontend does not fully implement the design prototype
+- the editor relies on markdown instead of a collaborative editor in Microsoft Word style
+- data validation and checks for completeness are implemented only rudimentary
+- functionality is limited, for example, there is no user login, and no automatic data saving
+- data handling could be implemented more efficiently, maybe consider using a global state, better use of states, or more performant state libraries
+- generation of steps and content in the proposal stepper is not completely flexible (e.g. CoreDataStep is not customizable/always has the same questions)
+
+Find a document which addresses this problems and proposes a solution when implementing the real system here:
+\<link will be added soon>
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
+- `npm start`: runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.\
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm test`: Launches the test runner in the interactive watch mode.\
+**No tests are available so far.**
+- `npm run build`: Compile the project into `build` folder
+- `npm run eject`: Careful, this is a one-way/potentially dangerous command.
