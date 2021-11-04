@@ -6,8 +6,8 @@ import Page from '../../../components/Page';
 
 const ProposalNext = () => (
   <Page
-    title="Proposal Next steps"
-    description="What you should do next."
+    title="Skizze - Nächste Schrite"
+    description="Wie geht es nun weiter?"
     className="ProposalNext"
   >
     <Box
