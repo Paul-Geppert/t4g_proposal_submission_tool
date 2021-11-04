@@ -2,12 +2,12 @@ const steps = [
   {
     title: 'Administrative Daten',
     component: 'core',
-    properties: ['creator', 'partners', 'leader', 'communicationPartner', 'executor', 'dataProtection'],
+    necessaryProperties: ['creator', 'partners', 'leader', 'communicationPartner', 'executor', 'dataProtection'],
   },
   {
     title: 'Vorhabensbeschreibung',
     component: 'content',
-    properties: ['freeText'],
+    necessaryProperties: ['freeText'],
     questions: [
       {
         title: 'Kurzbeschreibung',
@@ -46,7 +46,7 @@ Damit die Verkehrs- und Klimawende erfolgreich umgesetzt wird, ist das entwickel
   {
     title: 'Gesamtziel des Vorhabens',
     component: 'content',
-    properties: ['freeText'],
+    necessaryProperties: ['freeText'],
     questions: [
       {
         title: 'Einführung, Motivation, Ausgangssituation, ggf. Beispielszenario',

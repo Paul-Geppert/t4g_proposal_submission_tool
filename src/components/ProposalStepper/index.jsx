@@ -19,7 +19,7 @@ const ProposalCreationStepper = ({
   const uncompleted = OrderedSet(
     steps
       .map((_, i) => i)
-      .filter((step) => !isComplete(validated)(steps[step].properties)(step)),
+      .filter((step) => !isComplete(validated)(steps[step].necessaryProperties)(step)),
   );
 
   const visitStep = (step) =>
@@ -122,7 +122,7 @@ ProposalCreationStepper.propTypes = {
       title: PropTypes.string.isRequired,
       component: PropTypes.string.isRequired,
       questions: PropTypes.array,
-      properties: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+      necessaryProperties: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
       optional: PropTypes.bool,
     }),
   ).isRequired,

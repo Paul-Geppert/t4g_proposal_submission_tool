@@ -78,8 +78,8 @@ const isPersonComplete = (validated) =>
 
 const isFreeTextComplete = (validated, i) => validated[i].every((a) => a);
 
-export const isComplete = (validated) => (properties) => (i) =>
-  properties.every((prop) => {
+export const isComplete = (validated) => (necessaryProperties) => (i) =>
+  necessaryProperties.every((prop) => {
     // One of the top level properties
     if (typeof validated[prop] === 'boolean') {
       return validated[prop];
